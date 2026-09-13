@@ -38,3 +38,9 @@ actualizadas se generan en F2/docs/metricas.json.
 | ID | Fecha | Responsable | Decisión y motivo | Evidencia |
 |---|---|---|---|---|
 | D20 | 2026-09-13 | Benjamin Araya | Validar F1 con el entorno virtual del proyecto para evitar mezclar instalaciones de Python. | Windows; Python 3.12.0; 6 celdas sin errores; 11.177 filas y 63 columnas; original intacto. |
+
+## Comprobación local de F2
+
+| ID | Fecha | Responsable | Decisión y motivo | Evidencia |
+|---|---|---|---|--
+| D21 | 2026-09-13 | Benjamin Araya | Ejecutar F2 desde un kernel nuevo para comprobar su reproducción local y conservar las excepciones detectadas. | 12 celdas; 18 pruebas satisfactorias; 541 OC; 3 excepciones de detalle documentadas; original intacto. |
