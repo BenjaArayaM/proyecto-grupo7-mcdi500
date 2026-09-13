@@ -1,0 +1,22 @@
+{
+  "estandarizacion": {
+    "media": 1236630.1575065302,
+    "desviacion": 1525315.0851613507,
+    "ddof": 0
+  },
+  "orden_tamano": [
+    "Micro",
+    "Pequeña",
+    "Mediana",
+    "Grande"
+  ],
+  "columnas_nominales": [
+    "MonedaOC_CLF",
+    "MonedaOC_CLP",
+    "MonedaOC_USD",
+    "MonedaOC_UTM",
+    "EstadoOC_Aceptada",
+    "EstadoOC_Recepcion Conforme",
+    "EstadoOC_Solicitud de Cancelacion"
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "notebook": "F1/notebooks/F1_Definicion.ipynb",
+  "contexto": "revision_local",
+  "inicio_utc": "2026-09-13T18:00:09.019065+00:00",
+  "fin_utc": "2026-09-13T18:00:11.066474+00:00",
+  "kernel": "grupo7_mcdi500",
+  "motor": "jupyter",
+  "plataforma_ejecutor": "Windows",
+  "celdas_codigo_ejecutadas": 6,
+  "errores": 0,
+  "salidas_conservadas": true,
+  "sha256_fuente_notebook": "2465b5694489842dd09b34b351bcd72b0db5cd4ae47e3fd28c52d322166c6b69",
+  "revision_git_al_ejecutar": "6632bd9bb69f0fb1fe13c8c193dd7c338cf3118e"
+}

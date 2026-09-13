@@ -1,0 +1,30 @@
+{
+  "fecha": "2026-09-13",
+  "contexto": "validacion_asistida_codex",
+  "base_github_inspeccionada": "0a132d4f3c81de5a090fd39ef7785b64bf1c06e0",
+  "motor_notebooks": "ipykernel en memoria, un proceso nuevo por notebook",
+  "pruebas_exitosas": 18,
+  "celdas_f1": 6,
+  "celdas_f2": 12,
+  "fuentes_sha256": {
+    "F1/src/__init__.py": "f43e369a15b6a31d9734090ed233f63cf591f2fabb56b56b270a6d0acee2cd13",
+    "F1/src/entorno.py": "fee03634d6bae85016d19fb0da8c683f4b44ca72c47920c70a5f203e7eb0cea0",
+    "F2/src/__init__.py": "60ecd48ca5b4f7f27a7e4c2289349aeef8b5b2e6eb7eb97a458b81537d22c300",
+    "F2/src/informe.py": "0247b3665a6f0af992df08dd011fa16200cec44d1f44680584e9d8a2430da4b8",
+    "F2/src/preprocesamiento.py": "8da80533ce588719cf11154c5b8ab4c028b6da897b7f801eec0e6471cc67d73d",
+    "F2/tests/test_preprocesamiento.py": "9dd18b375c5d0a2e1c9757f9454c17b4eef825ed15333438ed1ab0a78e155135",
+    "proyecto.json": "5a33ec1246b45741b40ee66810547b22b313f547a6bc625613ebe13521770d8e",
+    "scripts/compilar_informe.py": "0e29b03a8c602d75bd5be089d61adb99c3d28751018301bcef2ac793e464fff9",
+    "scripts/ejecutar_notebook_memoria.py": "56890759413d83d8f8f789f7e1edb2850af9f5bd585c3a664efcb8a76b755e32",
+    "scripts/ejecutar_notebooks.py": "a6e24859e944af46b2bb2085fec6c4d1ed5ee5d25fc12f57d422ca34c6370cab",
+    "scripts/ejecutar_pipeline.py": "38c27d72e25d061abe248b17eac688c501945a9723cde56414c22e02dd3d7fe7",
+    "scripts/verificar_entrega.py": "49e3d1b0f0724a5573d0b5298432a1e9c1a9cc5cca97299fa2920d1f45d5bbce",
+    "scripts/verificar_original.py": "5a47ff8c8be63b6ab41f15617d1c14a056c45eaa1080bd2361a745e59165dbba"
+  },
+  "limitaciones": [
+    "JupyterLab Windows y reconstruccion de requirements.txt pendientes",
+    "Original y tablas individuales locales; acceso autorizado y reproducibilidad desde el repositorio pendientes.",
+    "Docente, fecha, metadatos docentes y aportes de cuatro integrantes pendientes"
+  ],
+  "publicacion": "Sin archivos ni commits nuevos publicados: el usuario realizará sus propias subidas."
+}

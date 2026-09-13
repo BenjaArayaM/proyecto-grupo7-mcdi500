@@ -1,0 +1,86 @@
+{
+  "origen": {
+    "ruta_relativa": "F1/data/raw/187402OCCompraAgil.csv",
+    "bytes": 21743181,
+    "sha256": "1fcbdec3161500e95a15d2af82df3d007549f2d5da9a6d0b4e6063540406be1c"
+  },
+  "filas_original": 11177,
+  "columnas_original": 63,
+  "ordenes": 541,
+  "proveedores_rut": 277,
+  "fecha_min": "2025-01-06",
+  "fecha_max": "2025-06-30",
+  "filas_identicas_adicionales": 6,
+  "filas_en_grupos_identicos": 12,
+  "rut_con_varios_nombres_normalizados": 0,
+  "monedas_oc": {
+    "CLP": 536,
+    "UTM": 2,
+    "USD": 2,
+    "CLF": 1
+  },
+  "estados_oc": {
+    "Aceptada": 537,
+    "Recepcion Conforme": 3,
+    "Solicitud de Cancelacion": 1
+  },
+  "nulos_por_fila": {
+    "ActividadProveedor": 2695,
+    "RegionProveedor": 150,
+    "ImpuestoEspecificoItem": 11177
+  },
+  "nulos_por_oc": {
+    "ActividadProveedor": 139,
+    "RegionProveedor": 8
+  },
+  "rubros_distintos": {
+    "RubroN1": 53,
+    "RubroN2": 191,
+    "RubroN3": 487
+  },
+  "ordenes_con_mas_de_un_n1": 180,
+  "n2_con_mas_de_un_padre_n1": 1,
+  "grupos_oc_producto": 2043,
+  "grupos_compatibles_con_producto_cartesiano": 2040,
+  "ejemplo_699": [
+    {
+      "codigoOC": "2427-699-AG25",
+      "CodigoProductoONU": "14111509",
+      "filas_exportadas": 1024,
+      "firmas_item": 32,
+      "firmas_cotizacion": 32,
+      "producto_firmas": 1024,
+      "coincide_producto": true
+    }
+  ],
+  "ordenes_conciliadas_firmas": 538,
+  "ordenes_no_conciliadas": [
+    "2427-264-AG25",
+    "2427-511-AG25",
+    "2427-543-AG25"
+  ],
+  "neto_clp_total_todos_estados": 669016915.2110329,
+  "ordenes_estado_habilitado": 540,
+  "extremos_neto_clp_todos_estados": 61,
+  "iqr_neto_clp": {
+    "n": 541,
+    "q1": 217923.0,
+    "q3": 1620152.0,
+    "limite_inferior": -1885420.5,
+    "limite_superior": 3723495.5,
+    "factor": 1.5
+  },
+  "extremos_mapa_total_oc_solo_clp": 60,
+  "iqr_mapa_total_oc_solo_clp": {
+    "n": 536,
+    "q1": 258756.2775,
+    "q3": 1906960.72,
+    "limite_inferior": -2213550.38625,
+    "limite_superior": 4379267.38375,
+    "factor": 1.5
+  },
+  "faltantes_neto_clp": 0,
+  "varianza_neto_clp_sin_imputacion_ddof0": 2326586109020.7783,
+  "tamano_sin_clasificar": 56,
+  "solo_proveedores_seleccionados": true
+}

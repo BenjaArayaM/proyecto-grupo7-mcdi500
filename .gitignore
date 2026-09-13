@@ -18,3 +18,24 @@ desktop.ini
 # Datos pesados y modelos
 *.ckpt
 *.pth
+
+# LaTeX: se versionan fuente, tablas, figuras y PDF; no auxiliares de compilación.
+*.aux
+*.log
+*.out
+*.toc
+*.lof
+*.lot
+*.fls
+*.fdb_latexmk
+*.synctex.gz
+
+# Caché de pruebas
+.pytest_cache/
+
+# Datos individuales: generación local; publicación pendiente de autorización explícita.
+F1/data/raw/*.csv
+F2/data/processed/*.csv
+F2/docs/conciliacion_firmas.csv
+F2/docs/cruce_exportacion.csv
+F2/docs/excepciones_detalle.csv

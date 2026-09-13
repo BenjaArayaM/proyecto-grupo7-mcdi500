@@ -1,0 +1,14 @@
+{
+  "notebook": "F2/notebooks/F2_Preprocesamiento.ipynb",
+  "contexto": "revision_local",
+  "inicio_utc": "2026-09-13T18:34:06.440043+00:00",
+  "fin_utc": "2026-09-13T18:34:14.044304+00:00",
+  "kernel": "grupo7_mcdi500",
+  "motor": "jupyter",
+  "plataforma_ejecutor": "Windows",
+  "celdas_codigo_ejecutadas": 12,
+  "errores": 0,
+  "salidas_conservadas": true,
+  "sha256_fuente_notebook": "5edb954f6066adba02a39ddae05ebc4358e281cde7a88c0e3c57e4e6abca8e52",
+  "revision_git_al_ejecutar": "45ea1ad224ea45d1e83f5236b85570de3f55a8f1"
+}
