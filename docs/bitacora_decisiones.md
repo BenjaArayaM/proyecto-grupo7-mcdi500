@@ -42,5 +42,5 @@ actualizadas se generan en F2/docs/metricas.json.
 ## Comprobación local de F2
 
 | ID | Fecha | Responsable | Decisión y motivo | Evidencia |
-|---|---|---|---|--
-| D21 | 2026-09-13 | Benjamin Araya | Ejecutar F2 desde un kernel nuevo para comprobar su reproducción local y conservar las excepciones detectadas. | 12 celdas; 18 pruebas satisfactorias; 541 OC; 3 excepciones de detalle documentadas; original intacto. |
+|---|---|---|---|---|
+| D21 | 2026-09-13 | Benjamin Araya | Ejecutar F2 desde un kernel nuevo para comprobar su reproducción local y conservar las excepciones detectadas. | 12 celdas; 18 pruebas satisfactorias; 541 OC; 3 excepciones de detalle documentadas; original intacto. | |
