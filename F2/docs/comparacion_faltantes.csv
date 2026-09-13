@@ -1,0 +1,7 @@
+columna,estrategia,ordenes_iniciales,faltantes_originales,ordenes_retenidas,atributos_reales_asignados_sin_evidencia
+ActividadProveedor,eliminar_orden_sin_dato,541,139,402,0
+ActividadProveedor,imputar_moda,541,139,541,139
+ActividadProveedor,conservar_NA_y_marca,541,139,541,0
+RegionProveedor,eliminar_orden_sin_dato,541,8,533,0
+RegionProveedor,imputar_moda,541,8,541,8
+RegionProveedor,conservar_NA_y_marca,541,8,541,0

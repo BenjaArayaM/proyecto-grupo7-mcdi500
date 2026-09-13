@@ -1,0 +1,6 @@
+# Preservar exactamente los bytes del CSV original, incluso con core.autocrlf.
+F1/data/raw/*.csv -text
+# La sumativa exige notebooks con salidas; comprobar también .git/info/attributes.
+*.ipynb -filter
+*.pdf binary
+*.pptx binary

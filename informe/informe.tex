@@ -1,0 +1,444 @@
+\documentclass[12pt,letterpaper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\IfFileExists{spanish.ldf}{\usepackage[spanish,es-tabla]{babel}}{\usepackage{babel}}
+\usepackage[margin=2.54cm]{geometry}
+\usepackage{microtype}
+\usepackage{graphicx}
+\usepackage{booktabs,tabularx,longtable,array}
+\usepackage{float}
+\usepackage{enumitem}
+\usepackage{setspace}
+\usepackage{xcolor}
+\usepackage[authoryear,round]{natbib}
+\usepackage{hyperref}
+\usepackage{xurl}
+\hypersetup{colorlinks=true,linkcolor=black,urlcolor=blue,citecolor=black,
+  pdftitle={Sumativa 1: preparación reproducible de Compra Ágil},
+  pdfauthor={Grupo 7 MCDI500}}
+\renewcommand{\contentsname}{Índice}
+\renewcommand{\refname}{Referencias}
+\renewcommand{\figurename}{Figura}
+\renewcommand{\tablename}{Tabla}
+\renewcommand{\bibsection}{\section*{Referencias}\addcontentsline{toc}{section}{Referencias}}
+\setlength{\bibhang}{1.27cm}
+\setlength{\bibsep}{0.8\baselineskip}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt}
+\setlength{\emergencystretch}{3em}
+\setlist{nosep,leftmargin=*}
+\setstretch{1.15}
+\newcolumntype{Y}{>{\raggedright\arraybackslash}X}
+\newcommand{\archivo}[1]{\path{#1}}
+\input{tablas/metricas.tex}
+
+% Completar con datos confirmados; no inventar nombre del docente ni fecha de entrega.
+\newcommand{\Docente}{PENDIENTE: nombre del docente}
+\newcommand{\FechaEntrega}{PENDIENTE: fecha de entrega}
+\newcommand{\EstadoDocumento}{Borrador técnico para revisión del equipo}
+
+\begin{document}
+\hypersetup{pageanchor=false}
+\begin{titlepage}
+\centering
+{\large Universidad Andrés Bello\par}
+{\large Magíster en Ciencia de Datos e Inteligencia Artificial\par}
+\vspace{1.0cm}
+{\large MCDI500\par}
+{\large Programación para la ciencia de datos\par}
+\vspace{1.1cm}
+{\LARGE\bfseries Evaluación Sumativa 1\par}
+\vspace{0.4cm}
+{\Large Fases 1 y 2\par}
+\vspace{0.5cm}
+{\Large Preparación reproducible de órdenes de Compra Ágil de Valparaíso\par}
+\vspace{1.0cm}
+{\large Grupo 7\par}
+Benjamin Araya Matta\\
+Alan Cañete Calquin\\
+Patricio Cortez Triviño\\
+Jorge Guaico Ortega
+\vspace{0.8cm}
+
+Docente: \Docente\\
+Fecha de entrega: \FechaEntrega\\
+Versión de trabajo: 13 de septiembre de 2026
+\vfill
+{\bfseries \EstadoDocumento\par}
+{\small Base preparada con asistencia de Codex; revisión y aportes del equipo pendientes.\par}
+\vspace{0.4cm}
+{\small Repositorio:\par
+\url{https://github.com/BenjaArayaM/proyecto-grupo7-mcdi500}\par}
+\end{titlepage}
+
+\hypersetup{pageanchor=true}
+\pagenumbering{roman}
+\tableofcontents
+\clearpage
+\pagenumbering{arabic}
+
+\section{Introducción y contextualización}
+
+El proyecto estudia la preparación de datos de Compra Ágil asociados a la unidad
+ABASTECIMIENTO de la Municipalidad de Valparaíso. La pregunta del mapa conceptual
+V2 es cómo se distribuyen los montos de las órdenes de compra según proveedores,
+rubros y mes de envío. Responderla exige primero establecer unidades de observación,
+comparabilidad monetaria y calidad de la información.
+
+La copia examinada contiene \FilasOriginal{} filas y \ColumnasOriginal{} columnas.
+El diagnóstico distingue \Ordenes{} órdenes y \Proveedores{} RUT proveedores,
+con fechas de envío entre \FechaMin{} y \FechaMax{}. Una fila del archivo no equivale
+necesariamente a una orden ni a un ítem único. Esta diferencia afecta directamente
+los totales y la interpretación de cualquier gráfico posterior.
+
+La Fase 1 define problema, objetivos y entorno; la Fase 2 obtiene, explora, prepara
+y valida. Esta delimitación responde a la guía y a la rúbrica suministradas
+\citep{guia,rubrica}. El análisis sustantivo y la comunicación final de las fases
+posteriores utilizarán las salidas verificadas, ajustándose a las guías de F3 y F4
+cuando estén disponibles.
+
+Este documento presenta una base ejecutada en un entorno de validación y decisiones
+propuestas para revisión. No acredita aún ejecución en los cuatro equipos, una
+reconstrucción del entorno Windows ni la aprobación colectiva de las políticas.
+Esos elementos forman parte del trabajo pendiente y del historial que debe producir
+el equipo durante el desarrollo.
+
+\section{Problemática, objetivos y alcance}
+
+\subsection{Problema y objetivo general}
+
+El problema técnico consiste en convertir una exportación que mezcla cabeceras,
+ítems y cotizaciones en tablas reproducibles, sin multiplicar importes ni inventar
+atributos faltantes. El objetivo general es preparar un entorno y un pipeline que
+permitan caracterizar las órdenes observadas, conservando procedencia y trazabilidad
+de las decisiones.
+
+\subsection{Objetivos específicos verificables}
+
+\begin{enumerate}
+\item Documentar intérprete, dependencias, estructura y SHA-256 del original;
+verificar las rutas requeridas desde la raíz del proyecto.
+\item Perfilar el 100\,\% de las columnas y medir faltantes, repeticiones, monedas,
+estados y cardinalidades antes de transformar.
+\item Construir por código una tabla con clave \archivo{codigoOC} única,
+conservando las órdenes observadas y separando sus relaciones con rubros.
+\item Implementar conversiones y políticas justificadas de faltantes, extremos y
+variables derivadas; registrar parámetros e impacto.
+\item Probar casos normales, límites y errores; ejecutar F1 y F2 desde kernels
+nuevos y relacionar sus evidencias con el informe y los commits efectivos.
+\end{enumerate}
+
+\subsection{Supuestos y exclusiones}
+
+Se limita el estudio a la copia adjunta y su cobertura observada. No se infieren
+pagos efectivos, irregularidades, causalidad, estacionalidad anual ni resultados
+representativos de todas las compras públicas del país.
+
+La cabecera de una orden debe tener atributos constantes por código; el pipeline
+se detiene si encuentra contradicciones. Se propone usar el neto CLP informado por
+la fuente como medida común, sujeto a contrastar el diccionario monetario. Las
+órdenes con solicitud de cancelación se conservan y se identifican para una
+decisión posterior sobre el universo descriptivo.
+
+El archivo contiene únicamente valores SI en \archivo{ProveedorSeleccionado};
+por ello, no permite una comparación documentada entre ofertas ganadoras y
+perdedoras. Los montos por rubro quedan condicionados a conciliar el detalle y
+resolver sus multiplicidades.
+
+\section{Fase 1: entorno y procedencia}
+
+\subsection{Organización reproducible}
+
+Se mantiene la estructura F1--F4 existente. El archivo original se conserva en
+\archivo{F1/data/raw/187402OCCompraAgil.csv}. Las salidas transformadas se generan
+en \archivo{F2/data/processed}. El notebook F1 reconoce el archivo sin imputar,
+limpiar ni exportar registros procesados.
+
+\begin{table}[H]
+\caption{Componentes y responsabilidad técnica}
+\label{tab:estructura}
+\small\singlespacing
+\begin{tabularx}{\textwidth}{@{}p{0.38\textwidth}Y@{}}
+\toprule
+Componente & Responsabilidad\\
+\midrule
+\archivo{proyecto.json} & Esquema, columnas, hash y políticas parametrizadas.\\
+\archivo{F1/src/entorno.py} & Raíz, integridad y versiones observadas.\\
+\archivo{F2/src/preprocesamiento.py} & Funciones de diagnóstico, preparación y validación.\\
+\archivo{F2/tests} & Pruebas de comportamiento y riesgos analíticos.\\
+\archivo{evidencias} & Entornos, pruebas y ejecución de notebooks.\\
+\archivo{informe} & Texto LaTeX, tablas, figura y PDF.\\
+\archivo{docs} & Plan, bitácora, mapa y matriz de rúbrica.\\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+El original tiene 21.743.181 bytes. Su huella, registrada en la configuración,
+coincide con la copia empleada para auditar el mapa V2:
+
+{\small\url{1fcbdec3161500e95a15d2af82df3d007549f2d5da9a6d0b4e6063540406be1c}}
+
+La ruta usa un nombre canónico; solo renombrar el adjunto no modifica sus bytes.
+La URL y fecha de descarga originales deben documentarse por quien obtuvo el archivo.
+No se sustituyen por la fecha de esta validación.
+
+\subsection{Herramientas elegidas y versiones}
+
+pandas permite declarar separador, codificación y tipos al leer el CSV
+\citep{pandas}. Se utiliza para perfiles, proyecciones y relaciones entre tablas.
+NumPy calcula cuantiles y parámetros de escala con criterios explícitos
+\citep{numpy}. Las funciones operan sobre copias o devuelven objetos nuevos, de
+modo que la narrativa de Jupyter no oculte mutaciones del original.
+
+JupyterLab permite editar archivos LaTeX y visualizar PDF \citep{jupyter}.
+El informe se redacta como \archivo{informe.tex}; un script genera sus insumos y
+ejecuta tres pasadas de pdflatex. El compilador se instala mediante MiKTeX o TeX Live
+fuera del entorno virtual de Python.
+
+La validación inicial utilizó Python 3.12.14 en Linux, pandas 2.2.3, NumPy 2.3.5
+y Matplotlib 3.10.8. Los notebooks se ejecutaron con ipykernel en memoria, en un
+proceso nuevo por notebook, porque este entorno no permite abrir conexiones de
+Jupyter. La ejecución normal en JupyterLab de Windows sigue pendiente.
+Las versiones completas observadas están en los JSON de entorno;
+las dependencias directas de esta comprobación están en
+\archivo{requirements-validacion.txt}.
+
+Se preservó \archivo{requirements.txt}, previamente generado por el equipo Windows.
+No se afirma equivalencia ni reconstrucción comprobada entre ambos entornos.
+Antes de entregar, corresponde acordar versiones, revisar incompatibilidades y
+ejecutar desde una instalación limpia. La semilla 42 está declarada; el pipeline
+actual es determinista y no utiliza muestreo aleatorio.
+
+\section{Fase 2: diagnóstico de la estructura de los datos}
+
+\subsection{Lectura y unidad de observación}
+
+La lectura usa punto y coma, codificación Windows-1252 y campos iniciales como texto.
+Los vacíos se reconocen como ausentes y los RUT no se convierten a números.
+La lista de 22 atributos de cabecera se declara en la configuración y se aplica
+con código desde el original completo.
+
+Antes de proyectar una fila por orden se verifica que esos atributos sean constantes
+dentro de cada \archivo{codigoOC}. La prueba permite construir \Ordenes{} cabeceras
+sin repetir sus montos. Este procedimiento no equivale a eliminar indiscriminadamente
+las filas repetidas del archivo.
+
+Se observan 536 órdenes en CLP, dos en USD, dos en UTM y una en CLF. Los estados son
+537 Aceptada, tres Recepción Conforme y una Solicitud de Cancelación. Se conservan
+todos los registros y una marca identifica las 540 órdenes de los dos primeros
+estados como propuesta para análisis descriptivo.
+
+\subsection{Repeticiones y conciliación de detalle}
+
+Hay \DuplicadosAdicionales{} filas completamente idénticas adicionales, y 12 filas
+pertenecen a esos grupos. En 2.040 de 2.043 grupos OC--producto, la cantidad de filas
+coincide con el producto de las firmas distintas de ítem y cotización. En la OC
+2427-699-AG25 aparecen 32 firmas de cada lado y 1.024 filas.
+
+La coincidencia es compatible con una expansión cartesiana de relaciones, pero
+no demuestra por sí sola el mecanismo de exportación. La suma del campo
+\archivo{MontoNetoItemCLP} sobre firmas distintas concilia con la cabecera, a
+tolerancia absoluta de 1 CLP, en \OrdenesConciliadas{} órdenes.
+
+\begin{table}[H]
+\caption{Órdenes cuyo detalle de firmas distintas no concilia}
+\label{tab:excepciones}
+\small\singlespacing
+\input{tablas/excepciones.tex}
+\par\smallskip
+{\footnotesize Nota. Diferencia = suma de firmas menos neto de la OC. Tabla generada por código.}
+\end{table}
+
+En 2427-264-AG25 existen dos filas idénticas de un millón de CLP y una cabecera de
+dos millones. Borrar una de esas filas perdería un millón del detalle. Por ello,
+se preservan las discrepancias, no se exporta un detalle monetario definitivo y se
+solicita contrastar las tres órdenes con la fuente. Conciliar numéricamente las
+otras órdenes tampoco prueba que se haya reconstruido cada línea real.
+
+\subsection{Proveedores y jerarquía de rubros}
+
+Se normalizan espacios, mayúsculas y puntos para comparar RUT y nombres, preservando
+las columnas originales. No se encontraron RUT asociados a varios nombres
+normalizados; por tanto, no se justifican fusiones por similitud en esta copia.
+
+Los niveles N1, N2 y N3 contienen 53, 191 y 487 etiquetas. Hay
+\OrdenesMultirrubro{} órdenes con más de un N1 y una etiqueta N2 bajo varios padres N1.
+Se conserva la ruta completa N1--N2--N3 en una tabla de 1.683 relaciones. Esta
+tabla expresa pertenencia, no asignación de montos. Sus conteos pueden solaparse.
+
+\section{Decisiones de preprocesamiento y transformación}
+
+\subsection{Faltantes y alternativas}
+
+La tabla \ref{tab:faltantes} diferencia el denominador de filas del denominador
+de órdenes. Esta distinción evita trasladar porcentajes de una unidad a otra.
+
+\begin{table}[H]
+\caption{Ausencias en el original y en las cabeceras}
+\label{tab:faltantes}
+\small\singlespacing
+\input{tablas/faltantes.tex}
+\par\smallskip
+{\footnotesize Nota. Filas: n = \FilasOriginal{}. OC: n = \Ordenes{}.
+El impuesto específico es un atributo de ítem.}
+\end{table}
+
+Eliminar órdenes sin actividad dejaría 402 de 541; hacerlo por región dejaría 533.
+Imputar la moda asignaría, respectivamente, 139 u ocho atributos sin evidencia de
+la fuente. Se propone conservar los NA y agregar marcas y etiquetas de presentación.
+El impuesto específico del ítem, completamente vacío, no se interpreta como cero.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.95\textwidth]{figuras/faltantes_oc.pdf}
+\caption{Faltantes de atributos de proveedor medidos por orden.}
+\label{fig:faltantes}
+{\footnotesize Nota. Elaboración mediante Matplotlib a partir de las métricas de F2.}
+\end{figure}
+
+El neto CLP tiene cero valores faltantes: no se aplica imputación por media, mediana
+ni grupo. Su varianza poblacional antes y después es \VarianzaNeto{} CLP$^2$;
+el cambio es cero, porque ningún importe fue reemplazado o recortado.
+
+\subsection{Importes, fechas y valores extremos}
+
+La conversión de números usa coma decimal y rechaza textos o formatos ambiguos.
+Las fechas se interpretan explícitamente como día-mes-año. Se conservan importes y
+monedas originales; la propuesta de comparación utiliza el neto CLP de la fuente.
+La suma de control de las \Ordenes{} cabeceras, incluidos todos los estados, es
+\NetoTotal{} CLP. No se presenta como pago efectivo ni como gasto definitivo.
+
+La regla de Tukey marca \ExtremosNeto{} órdenes con neto CLP sobre
+\UmbralNeto{} CLP. Ninguna se elimina. El mapa V2 había diagnosticado otra base:
+el total de OC de las 536 órdenes CLP, con \ExtremosMapa{} extremos y umbral
+\UmbralMapa{} CLP. La diferencia se explica por variable y población; ambas bases
+se reproducen en el notebook. Un extremo estadístico no constituye evidencia de error.
+
+\subsection{Vista transformada}
+
+Se produce una tabla separada de 541 filas con:
+
+\begin{itemize}
+\item Estandarización Z del neto CLP, con media y desviación poblacional guardadas.
+Una variable constante retorna cero y no divide por cero.
+\item Siete columnas one-hot para las cuatro monedas y los tres estados.
+Se conserva el vocabulario utilizado.
+\item Tamaño ordinal Micro = 1, Pequeña = 2, Mediana = 3 y Grande = 4.
+Las \TamanoDesconocido{} órdenes con NoClasificado mantienen NA e indicador.
+\end{itemize}
+
+La vista permite estudiar escalas y categorías en exploraciones posteriores, sin
+modificar los importes. El ordinal expresa orden, no igualdad de distancias. La
+clasificación procede del archivo y no se verificó con ventas de los proveedores.
+Si se realiza modelado predictivo, los parámetros y vocabularios deberán ajustarse
+solo sobre entrenamiento; esta sumativa no declara un modelo entrenado.
+
+\section{Codificación funcional y validación}
+
+El pipeline separa lectura, perfil, validación de cabeceras, conversiones, relaciones,
+diagnóstico de detalle, transformaciones y exportación. Las funciones reciben datos
+y parámetros y devuelven tablas nuevas; la exportación se concentra en una función.
+El original se vuelve a verificar al finalizar.
+
+Se ejecutaron 18 pruebas con resultado satisfactorio. Incluyen números con coma,
+entrada vacía, fechas imposibles, montos contradictorios por OC, conservación de
+datos, RUT con cero inicial, series constantes, categorías inesperadas y una única
+categoría nominal. Las pruebas sobre el archivo real exigen conservar 541 órdenes,
+las tres excepciones de detalle y las cantidades de faltantes.
+
+Los notebooks se ejecutan con kernels nuevos, conservan contadores y salidas y
+detienen el flujo ante fallos. Después de exportar se recarga la tabla de órdenes;
+se comprueban claves y montos con tolerancia de $10^{-7}$ CLP, compatible con los
+ocho decimales exportados. Esta tolerancia numérica no tiene el mismo propósito
+que el umbral de 1 CLP utilizado para el diagnóstico de conciliación.
+
+\citet{samuel} muestran que declarar dependencias y disponer de notebooks no basta
+para asegurar resultados reproducibles. En este proyecto se distingue la ejecución
+asistida ya realizada de la reconstrucción local y cruzada que todavía debe
+completar el equipo.
+
+\section{Control de versiones y trazabilidad}
+
+La revisión inicial del repositorio encontró dos commits de Benjamín, del 8 y
+12 de septiembre de 2026: estructura inicial y mapa corregido. Esa evidencia no
+acredita todavía contribuciones de los otros integrantes. Los commits de esta base
+registran trabajo asistido; no se les atribuyen revisiones o autorías inexistentes.
+
+Cada integrante deberá ejecutar y desarrollar tareas propias con identidad real,
+durante el período de trabajo, y participar en revisiones cruzadas. La bitácora
+recoge una decisión por fila, con cifras, motivo, impacto y estado. Los identificadores
+de nuevos commits se incorporarán después de producir los cambios reales.
+
+La guía exige evidencia visible en los notebooks. Por ello, debe retirarse el filtro
+de nbstripout instalado anteriormente en este repositorio y comprobarse el contenido
+preparado para el commit. Ver un resultado en Jupyter no prueba que el filtro permita
+guardarlo en Git.
+
+El acceso compartido al original y a las tablas individuales sigue pendiente.
+El paquete de trabajo contiene código, informe y resultados agregados para su
+revisión; no se han publicado archivos ni nuevos commits de esta base.
+El original y las tablas individuales permanecen locales.
+La versión final debe resolver el acceso autorizado a esos insumos, las dependencias
+reconstruibles y el acceso del docente. El entorno virtual y los auxiliares de
+compilación no se versionan.
+
+\clearpage
+\section{Vinculación con el mapa conceptual V2}
+
+El mapa corregido se mantiene como documento legible en
+\archivo{F1/docs/Mapa_conceptual_Grupo7_V2.pdf}, junto a su editable. La tabla
+\ref{tab:mapa} vincula sus conceptos con evidencias; la correspondencia completa
+está en \archivo{docs/vinculacion_mapa.md}.
+
+\begin{table}[H]
+\caption{Conceptos implementados y trabajo proyectado}
+\label{tab:mapa}
+\small\singlespacing
+\begin{tabularx}{\textwidth}{@{}p{0.25\textwidth}p{0.25\textwidth}Y@{}}
+\toprule
+Concepto & Estado & Evidencia\\
+\midrule
+Definición y entorno & Implementado; revisión local pendiente & Notebook F1 y configuración.\\
+Adquisición y raw & Lectura/hash implementados; incorporación remota pendiente & F1/data/raw y manifiesto.\\
+Exploración & Implementada & Notebook F2, secciones 2 y 3.\\
+Limpieza y transformación & Implementadas; políticas propuestas & F2/src y parámetros exportados.\\
+Git versiona la limpieza & Base preparada; aportes grupales pendientes & Historia, rama y bitácora.\\
+Jupyter documenta exploración & Implementado con salidas & Notebooks ejecutados.\\
+Rubros & Pertenencia implementada; montos por rubro pendientes & Puente y excepciones de detalle.\\
+Visualización y reporte & Figura diagnóstica e informe borrador & Matplotlib y LaTeX.\\
+F3 y F4 & Proyectadas & Sin declarar ejecución ni entregables futuros cerrados.\\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\clearpage
+\section{Reflexión técnica y próximos pasos}
+
+La decisión central es separar las unidades presentes en el archivo. Validar
+atributos de cabecera permite obtener una tabla de órdenes sin multiplicar sus
+importes. Sin embargo, la conciliación de firmas no resuelve todas las multiplicidades
+del detalle. Esta limitación impide asignar montos por rubro con la evidencia actual,
+aunque sí permite conservar y estudiar relaciones de pertenencia.
+
+Las alternativas descartadas tienen consecuencias observables: eliminar por
+actividad perdería 139 órdenes; imputar la moda asignaría información desconocida;
+deduplicar el detalle de la OC 264 quitaría un millón de CLP. Conservar datos y
+declarar excepciones produce una base más defendible que presentar esas decisiones
+como automáticamente resueltas.
+
+Antes de entregar se deben cerrar los siguientes puntos:
+
+\begin{enumerate}
+\item Validar definición de montos, conversión a CLP y las tres excepciones.
+\item Justificar filtro de estados y transformaciones en la bitácora.
+\item Resolver acceso autorizado al original y documentar URL/fecha de descarga.
+\item Acordar dependencias, ejecutar en Windows y reconstruir en otro equipo.
+\item Registrar aportes y revisiones reales de los cuatro integrantes.
+\item Completar portada y metadatos docentes; revisar la versión final.
+\end{enumerate}
+
+\clearpage
+\input{referencias.tex}
+
+\end{document}
