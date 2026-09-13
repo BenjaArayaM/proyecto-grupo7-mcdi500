@@ -1,14 +1,14 @@
 {
   "notebook": "F1/notebooks/F1_Definicion.ipynb",
-  "contexto": "validacion_asistida_codex",
-  "inicio_utc": "2026-09-13T16:30:40.090544+00:00",
-  "fin_utc": "2026-09-13T16:30:40.962148+00:00",
+  "contexto": "revision_local",
+  "inicio_utc": "2026-09-13T17:48:32.743887+00:00",
+  "fin_utc": "2026-09-13T17:48:34.820235+00:00",
   "kernel": "grupo7_mcdi500",
-  "motor": "memoria",
-  "plataforma_ejecutor": "Linux",
+  "motor": "jupyter",
+  "plataforma_ejecutor": "Windows",
   "celdas_codigo_ejecutadas": 6,
   "errores": 0,
   "salidas_conservadas": true,
-  "sha256_fuente_notebook": "19cc89462e9e9a49666114aa788f29abdd88f3608a30e2262ce15a52ea4c202e",
-  "revision_git_al_ejecutar": null
+  "sha256_fuente_notebook": "0bb8d15723322853f87bc3581a9b54ac08a409c8abe23d212ab60c757f789875",
+  "revision_git_al_ejecutar": "8b4fcb6502651a4729250f6340ad23add293dc1b"
 }
