@@ -37,4 +37,4 @@ actualizadas se generan en F2/docs/metricas.json.
 
 | ID | Fecha | Responsable | Decisión y motivo | Evidencia |
 |---|---|---|---|---|
-| D213-09-2026REAL | Benjamin Araya | Validar F1 con el entorno virtual del proyecto para evitar mezclar instalaciones de Python. | Windows; Python 3.12.0; 6 celdas sin errores; 11.177 filas y 63 columnas; original intacto. |
+| D20 | 2026-09-13 | Benjamin Araya | Validar F1 con el entorno virtual del proyecto para evitar mezclar instalaciones de Python. | Windows; Python 3.12.0; 6 celdas sin errores; 11.177 filas y 63 columnas; original intacto. |
