@@ -2,6 +2,8 @@
 
 Fecha de esta base: 2026-09-13. Registro preparado con asistencia de Codex a partir
 del adjunto y de ejecuciones reales en un entorno de validación Linux.
+Actualización: D20 y D21 documentan ejecuciones posteriores realizadas por
+Benjamín en Windows; D22 registra la compilación local del borrador.
 Las propuestas requieren revisión del grupo. No son decisiones aprobadas por los
 cuatro integrantes ni intervenciones atribuidas a una persona que no las realizó.
 
@@ -26,8 +28,8 @@ evidencia y commit efectivo; no inventar identificadores de commit.
 | D14 | Propuesta implementada: vista transformada separada | 541 filas; Z, 7 columnas one-hot, tamaño ordinal; 56 sin clasificación | Conserva dinero original; no se declara modelo ni entrenamiento |
 | D15 | Implementada: pruebas de riesgos | 18 casos exitosos; incluye fechas, contradicciones, límites y excepciones reales | Verificar pérdidas y fallos previstos antes de exportar |
 | D16 | Implementada: cifras del informe desde código | Tablas, figura y métricas proceden de ejecutar_pipeline | Evita discrepancias de transcripción entre productos |
-| D17 | Pendiente local: retirar filtro nbstripout | Guía exige contadores y salidas en F1/F2 | Verificar índice de Git, no solo la vista de Jupyter |
-| D18 | Abierta: cierre del entorno grupal y aportes | Validación Linux; requirements previo Windows; dos commits históricos de Benjamín al iniciar esta revisión | Reconstruir versiones acordadas y registrar contribuciones de cuatro personas en tiempo real |
+| D17 | Completada en el equipo de Benjamín: retirar filtro nbstripout y revisar el índice | F1: 6 celdas; F2: 12 celdas; verificador --staged satisfactorio antes de publicar resultados | Conservar salidas en Git; aplicar la comprobación en los demás equipos |
+| D18 | Abierta: reconstrucción limpia del entorno y aportes de los demás integrantes | Ejecución Windows comprobada en D20/D21; historial consultado hasta 54da075 con autor Benjamin Araya | Conciliar dependencias, comprobar otro equipo y registrar contribuciones reales de los cuatro integrantes |
 | D19 | Pendiente: autorización de publicación de registros individuales | Revisión automática rechazó subir ordenes.csv por contener nombres/RUT de proveedores | Se publican código, documentación y resultados agregados; original y tablas individuales permanecen locales |
 
 No usar estas cifras si cambia el original sin repetir el diagnóstico. Las métricas
@@ -39,8 +41,14 @@ actualizadas se generan en F2/docs/metricas.json.
 |---|---|---|---|---|
 | D20 | 2026-09-13 | Benjamin Araya | Validar F1 con el entorno virtual del proyecto para evitar mezclar instalaciones de Python. | Windows; Python 3.12.0; 6 celdas sin errores; 11.177 filas y 63 columnas; original intacto. |
 
-## Comprobación local de F2
-
-| ID | Fecha | Responsable | Decisión y motivo | Evidencia |
-|---|---|---|---|---|
-| D21 | 2026-09-13 | Benjamin Araya | Ejecutar F2 desde un kernel nuevo para comprobar su reproducción local y conservar las excepciones detectadas. | 12 celdas; 18 pruebas satisfactorias; 541 OC; 3 excepciones de detalle documentadas; original intacto. | |
+## Comprobación local de F2
+
+| ID | Fecha | Responsable | Decisión y motivo | Evidencia |
+|---|---|---|---|---|
+| D21 | 2026-09-13 | Benjamin Araya | Ejecutar F2 desde un kernel nuevo para comprobar su reproducción local y conservar las excepciones detectadas. | 12 celdas; 18 pruebas satisfactorias; 541 OC; 3 excepciones de detalle documentadas; original intacto. |
+
+## Compilación local del borrador del informe
+
+| ID | Fecha | Responsable | Decisión y motivo | Evidencia |
+|---|---|---|---|---|
+| D22 | 2026-09-13 | Benjamin Araya | Utilizar TeX Live 2026 como dependencia externa de Python y regenerar los insumos antes de compilar el borrador. | Consola local compartida: pdfTeX 1.40.29; scripts/compilar_informe.py completó 3 de 3 pasadas y anunció informe/informe.pdf. La compilación confirma generación del PDF, no la revisión final de su contenido. |

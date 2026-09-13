@@ -66,7 +66,7 @@ Fecha de entrega: \FechaEntrega\\
 Versión de trabajo: 13 de septiembre de 2026
 \vfill
 {\bfseries \EstadoDocumento\par}
-{\small Base preparada con asistencia de Codex; revisión y aportes del equipo pendientes.\par}
+{\small Base preparada con asistencia de Codex; ejecución local de F1 y F2 verificada por Benjamín. Revisión grupal pendiente.\par}
 \vspace{0.4cm}
 {\small Repositorio:\par
 \url{https://github.com/BenjaArayaM/proyecto-grupo7-mcdi500}\par}
@@ -98,11 +98,15 @@ y valida. Esta delimitación responde a la guía y a la rúbrica suministradas
 posteriores utilizarán las salidas verificadas, ajustándose a las guías de F3 y F4
 cuando estén disponibles.
 
-Este documento presenta una base ejecutada en un entorno de validación y decisiones
-propuestas para revisión. No acredita aún ejecución en los cuatro equipos, una
-reconstrucción del entorno Windows ni la aprobación colectiva de las políticas.
-Esos elementos forman parte del trabajo pendiente y del historial que debe producir
-el equipo durante el desarrollo.
+La base recibió una validación asistida inicial y después fue ejecutada por
+Benjamín Araya en Windows, dentro del entorno virtual del proyecto. Las evidencias
+locales del 13 de septiembre de 2026 registran seis celdas de código de F1 y doce
+de F2 sin errores, con salidas conservadas y 18 pruebas satisfactorias en F2.
+El borrador del informe también se compiló localmente mediante TeX Live 2026.
+
+Estas comprobaciones acreditan ejecución en el entorno existente de Benjamín.
+Siguen pendientes la reconstrucción desde una instalación limpia, la comprobación
+en los demás equipos y la revisión colectiva de las decisiones propuestas.
 
 \section{Problemática, objetivos y alcance}
 
@@ -188,27 +192,61 @@ No se sustituyen por la fecha de esta validación.
 pandas permite declarar separador, codificación y tipos al leer el CSV
 \citep{pandas}. Se utiliza para perfiles, proyecciones y relaciones entre tablas.
 NumPy calcula cuantiles y parámetros de escala con criterios explícitos
-\citep{numpy}. Las funciones operan sobre copias o devuelven objetos nuevos, de
-modo que la narrativa de Jupyter no oculte mutaciones del original.
+\citep{numpy}. Matplotlib representa los faltantes por orden a partir de las mismas
+métricas que alimentan las tablas del informe. Las funciones operan sobre copias
+o devuelven objetos nuevos, de modo que la narrativa de Jupyter no oculte mutaciones
+del original.
 
 JupyterLab permite editar archivos LaTeX y visualizar PDF \citep{jupyter}.
-El informe se redacta como \archivo{informe.tex}; un script genera sus insumos y
-ejecuta tres pasadas de pdflatex. El compilador se instala mediante MiKTeX o TeX Live
-fuera del entorno virtual de Python.
+El texto se mantiene en \archivo{informe/informe.tex}. El script
+\archivo{scripts/compilar_informe.py} regenera los insumos desde el pipeline y
+ejecuta tres pasadas de pdflatex para actualizar referencias e índice.
+Benjamín comprobó la disponibilidad de pdfTeX 1.40.29, incluido en TeX Live 2026,
+y comunicó tres pasadas correctas al compilar el borrador en Windows.
+LaTeX es una dependencia externa al entorno virtual de Python.
 
-La validación inicial utilizó Python 3.12.14 en Linux, pandas 2.2.3, NumPy 2.3.5
-y Matplotlib 3.10.8. Los notebooks se ejecutaron con ipykernel en memoria, en un
-proceso nuevo por notebook, porque este entorno no permite abrir conexiones de
-Jupyter. La ejecución normal en JupyterLab de Windows sigue pendiente.
-Las versiones completas observadas están en los JSON de entorno;
-las dependencias directas de esta comprobación están en
-\archivo{requirements-validacion.txt}.
+La comprobación asistida inicial utilizó Python 3.12.14 en Linux, pandas 2.2.3,
+NumPy 2.3.5 y Matplotlib 3.10.8. Su ejecución usó ipykernel en memoria y un proceso
+nuevo por notebook debido a las restricciones de conexiones de ese entorno.
+Las dependencias directas de esa comprobación inicial se conservan en
+\archivo{requirements-validacion.txt}; no describen la ejecución local posterior.
 
-Se preservó \archivo{requirements.txt}, previamente generado por el equipo Windows.
-No se afirma equivalencia ni reconstrucción comprobada entre ambos entornos.
-Antes de entregar, corresponde acordar versiones, revisar incompatibilidades y
-ejecutar desde una instalación limpia. La semilla 42 está declarada; el pipeline
-actual es determinista y no utiliza muestreo aleatorio.
+La ejecución posterior en Windows utilizó el kernel
+\archivo{grupo7_mcdi500} y el intérprete de \archivo{.venv/Scripts/python.exe}.
+Las versiones de la tabla \ref{tab:versiones} provienen de
+\archivo{evidencias/entorno_F1.json} y \archivo{evidencias/entorno_F2.json},
+coincidentes entre ambas fases.
+
+\begin{table}[H]
+\caption{Versiones observadas en el entorno local de Windows}
+\label{tab:versiones}
+\small\singlespacing
+\begin{tabularx}{\textwidth}{@{}YY@{}}
+\toprule
+Componente registrado & Versión observada\\
+\midrule
+Python & 3.12.0\\
+NumPy & 2.5.3\\
+pandas & 3.0.5\\
+Matplotlib & 3.11.1\\
+scikit-learn & 1.9.0\\
+nbformat & 5.11.1\\
+nbclient & 0.11.0\\
+ipykernel & 7.3.0\\
+JupyterLab & 4.6.3\\
+\bottomrule
+\end{tabularx}
+\par\smallskip
+{\footnotesize Nota. El registro de un paquete acredita su presencia, no su uso
+en cada transformación. Esta entrega no entrena un modelo con scikit-learn.}
+\end{table}
+
+Se preservó \archivo{requirements.txt}, generado previamente por el equipo.
+Ejecutar en el entorno existente no demuestra que ese archivo permita reconstruir
+por sí solo todas las versiones observadas. Antes de entregar, el equipo debe
+conciliar los archivos de dependencias con el entorno elegido y comprobar una
+instalación limpia y su ejecución en otro equipo. La semilla 42 está declarada;
+el pipeline actual es determinista y no utiliza muestreo aleatorio.
 
 \section{Fase 2: diagnóstico de la estructura de los datos}
 
@@ -347,41 +385,80 @@ datos, RUT con cero inicial, series constantes, categorías inesperadas y una ú
 categoría nominal. Las pruebas sobre el archivo real exigen conservar 541 órdenes,
 las tres excepciones de detalle y las cantidades de faltantes.
 
-Los notebooks se ejecutan con kernels nuevos, conservan contadores y salidas y
-detienen el flujo ante fallos. Después de exportar se recarga la tabla de órdenes;
+Las ejecuciones locales automatizadas utilizaron un kernel nuevo por notebook.
+\archivo{evidencias/ejecucion_F1.json} registra seis celdas de código ejecutadas
+y cero errores; \archivo{evidencias/ejecucion_F2.json} registra doce y cero,
+respectivamente. Ambos archivos identifican Windows, el motor Jupyter,
+el kernel utilizado y la conservación de salidas. El resultado de las 18 pruebas
+se conserva en \archivo{evidencias/pruebas_F2.json}.
+
+Los contadores y resultados permanecen visibles en los notebooks versionados.
+El flujo se detiene ante fallos. Después de exportar se recarga la tabla de órdenes;
 se comprueban claves y montos con tolerancia de $10^{-7}$ CLP, compatible con los
 ocho decimales exportados. Esta tolerancia numérica no tiene el mismo propósito
 que el umbral de 1 CLP utilizado para el diagnóstico de conciliación.
 
 \citet{samuel} muestran que declarar dependencias y disponer de notebooks no basta
-para asegurar resultados reproducibles. En este proyecto se distingue la ejecución
-asistida ya realizada de la reconstrucción local y cruzada que todavía debe
-completar el equipo.
+para asegurar resultados reproducibles. En este proyecto se distinguen tres
+alcances: validación asistida inicial, ejecución local ya comprobada en Windows
+y reconstrucción desde una instalación limpia y en otros equipos todavía pendiente.
+Los dos primeros alcances no sustituyen al tercero.
 
 \section{Control de versiones y trazabilidad}
 
-La revisión inicial del repositorio encontró dos commits de Benjamín, del 8 y
-12 de septiembre de 2026: estructura inicial y mapa corregido. Esa evidencia no
-acredita todavía contribuciones de los otros integrantes. Los commits de esta base
-registran trabajo asistido; no se les atribuyen revisiones o autorías inexistentes.
+El historial consultado de la rama \archivo{sumativa1-benjamin} llega al commit
+\archivo{54da075}. La tabla \ref{tab:commits} identifica avances ya publicados;
+todos tienen a Benjamin Araya como autor registrado. La incorporación de la base
+asistida y la ejecución posterior en su equipo se distinguen expresamente.
 
-Cada integrante deberá ejecutar y desarrollar tareas propias con identidad real,
-durante el período de trabajo, y participar en revisiones cruzadas. La bitácora
-recoge una decisión por fila, con cifras, motivo, impacto y estado. Los identificadores
-de nuevos commits se incorporarán después de producir los cambios reales.
+\begin{table}[H]
+\caption{Avances verificables en la rama de trabajo de Benjamín}
+\label{tab:commits}
+\small\singlespacing
+\begin{tabularx}{\textwidth}{@{}p{0.14\textwidth}p{0.20\textwidth}Y@{}}
+\toprule
+Commit & Fecha del registro & Avance documentado\\
+\midrule
+\href{https://github.com/BenjaArayaM/proyecto-grupo7-mcdi500/commit/9b266b241e8437c5ff672e97a78c061ae5bcd8ae}{\texttt{9b266b2}} & 2026-09-08 & Creación de la estructura inicial.\\
+\href{https://github.com/BenjaArayaM/proyecto-grupo7-mcdi500/commit/0a132d4f3c81de5a090fd39ef7785b64bf1c06e0}{\texttt{0a132d4}} & 2026-09-12 & Incorporación del mapa corregido según la retroalimentación.\\
+\href{https://github.com/BenjaArayaM/proyecto-grupo7-mcdi500/commit/8b4fcb6502651a4729250f6340ad23add293dc1b}{\texttt{8b4fcb6}} & 2026-09-13 & Incorporación de la base asistida para revisión del grupo.\\
+\href{https://github.com/BenjaArayaM/proyecto-grupo7-mcdi500/commit/6632bd9bb69f0fb1fe13c8c193dd7c338cf3118e}{\texttt{6632bd9}} & 2026-09-13 & Registro de ejecución local de F1 en Windows y bitácora.\\
+\href{https://github.com/BenjaArayaM/proyecto-grupo7-mcdi500/commit/45ea1ad224ea45d1e83f5236b85570de3f55a8f1}{\texttt{45ea1ad}} & 2026-09-13 & Corrección del registro de F1 y actualización de su validación.\\
+\href{https://github.com/BenjaArayaM/proyecto-grupo7-mcdi500/commit/5a4325e596395b0d9afa672b290c4f8af106d1e6}{\texttt{5a4325e}} & 2026-09-13 & Registro de ejecución local de F2 y resultados del preprocesamiento.\\
+\href{https://github.com/BenjaArayaM/proyecto-grupo7-mcdi500/commit/54da0751172bfc516d51ceeb518f1709d4896bb8}{\texttt{54da075}} & 2026-09-13 & Corrección de formato de la tabla de bitácora.\\
+\bottomrule
+\end{tabularx}
+\par\smallskip
+{\footnotesize Nota. Identificadores enlazados a GitHub; fechas tomadas del
+registro de autor en UTC. La tabla es una instantánea anterior al commit de
+esta revisión del informe.}
+\end{table}
 
-La guía exige evidencia visible en los notebooks. Por ello, debe retirarse el filtro
-de nbstripout instalado anteriormente en este repositorio y comprobarse el contenido
-preparado para el commit. Ver un resultado en Jupyter no prueba que el filtro permita
-guardarlo en Git.
+La ejecución de F1 actualizada quedó incorporada en \archivo{45ea1ad}, y la de
+F2 en \archivo{5a4325e}. El campo \archivo{revision_git_al_ejecutar} de cada
+evidencia corresponde al commit presente al iniciar esa ejecución, que precede
+al commit que guarda sus resultados. La huella de la fuente del notebook se
+registra por separado; no se reemplaza aquel identificador por uno posterior.
 
-El acceso compartido al original y a las tablas individuales sigue pendiente.
-El paquete de trabajo contiene código, informe y resultados agregados para su
-revisión; no se han publicado archivos ni nuevos commits de esta base.
-El original y las tablas individuales permanecen locales.
-La versión final debe resolver el acceso autorizado a esos insumos, las dependencias
-reconstruibles y el acceso del docente. El entorno virtual y los auxiliares de
-compilación no se versionan.
+Estos avances acreditan trabajo de Benjamín, pero el historial examinado todavía
+no acredita aportes individuales de Alan, Patricio y Jorge. Cada integrante debe
+desarrollar tareas propias con identidad real y participar en revisiones cruzadas
+durante el período de trabajo. La bitácora conserva las decisiones iniciales y
+añade los registros locales D20 y D21, con autor, fecha y cifras. D22 registra
+la compilación local del borrador. La revisión colectiva de las políticas continúa abierta.
+
+Se retiró el filtro local de nbstripout y se verificó el contenido preparado para
+los commits mediante \archivo{scripts/verificar_entrega.py} con la opción
+\texttt{-{}-staged}. Esta revisión
+comprobó la presencia de celdas ejecutadas y salidas; no certifica por sí sola la
+corrección metodológica ni la calificación del equipo.
+
+El código, los notebooks con resultados, la documentación y los agregados ya
+están publicados en la rama de trabajo. El original y las tablas individuales
+permanecen locales; su acceso compartido sigue pendiente. Antes de la entrega,
+corresponde resolver el acceso del docente a los insumos y al repositorio,
+comprobar las dependencias reconstruibles e integrar la rama tras la revisión.
+El entorno virtual y los auxiliares de compilación no se versionan.
 
 \clearpage
 \section{Vinculación con el mapa conceptual V2}
@@ -395,18 +472,18 @@ está en \archivo{docs/vinculacion_mapa.md}.
 \caption{Conceptos implementados y trabajo proyectado}
 \label{tab:mapa}
 \small\singlespacing
-\begin{tabularx}{\textwidth}{@{}p{0.25\textwidth}p{0.25\textwidth}Y@{}}
+\begin{tabularx}{\textwidth}{@{}>{\raggedright\arraybackslash}p{0.24\textwidth}>{\raggedright\arraybackslash}p{0.34\textwidth}Y@{}}
 \toprule
 Concepto & Estado & Evidencia\\
 \midrule
-Definición y entorno & Implementado; revisión local pendiente & Notebook F1 y configuración.\\
-Adquisición y raw & Lectura/hash implementados; incorporación remota pendiente & F1/data/raw y manifiesto.\\
+Definición y entorno & Ejecutado en Windows; revisión grupal pendiente & Notebook F1, configuración y evidencias locales.\\
+Adquisición y raw & Lectura/hash verificados; acceso compartido pendiente & F1/data/raw y manifiesto.\\
 Exploración & Implementada & Notebook F2, secciones 2 y 3.\\
 Limpieza y transformación & Implementadas; políticas propuestas & F2/src y parámetros exportados.\\
-Git versiona la limpieza & Base preparada; aportes grupales pendientes & Historia, rama y bitácora.\\
+Git versiona la limpieza & Código y resultados versionados; aportes de otros integrantes pendientes & Commits de la tabla \ref{tab:commits} y bitácora.\\
 Jupyter documenta exploración & Implementado con salidas & Notebooks ejecutados.\\
 Rubros & Pertenencia implementada; montos por rubro pendientes & Puente y excepciones de detalle.\\
-Visualización y reporte & Figura diagnóstica e informe borrador & Matplotlib y LaTeX.\\
+Visualización y reporte & Figura diagnóstica y compilación local del borrador & Matplotlib, LaTeX y script de compilación.\\
 F3 y F4 & Proyectadas & Sin declarar ejecución ni entregables futuros cerrados.\\
 \bottomrule
 \end{tabularx}
@@ -433,7 +510,7 @@ Antes de entregar se deben cerrar los siguientes puntos:
 \item Validar definición de montos, conversión a CLP y las tres excepciones.
 \item Justificar filtro de estados y transformaciones en la bitácora.
 \item Resolver acceso autorizado al original y documentar URL/fecha de descarga.
-\item Acordar dependencias, ejecutar en Windows y reconstruir en otro equipo.
+\item Conciliar dependencias con el entorno de Windows ya ejecutado y comprobar una instalación limpia y su ejecución en otro equipo.
 \item Registrar aportes y revisiones reales de los cuatro integrantes.
 \item Completar portada y metadatos docentes; revisar la versión final.
 \end{enumerate}
