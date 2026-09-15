@@ -1,13 +1,8 @@
 {
   "python": "3.13.15",
-  "sistema": "Windows 10",
+  "sistema": "Windows",
   "interprete": "C:\\Users\\patri\\Documents\\GitHub\\proyecto-grupo7-mcdi500\\.venv\\Scripts\\python.exe",
   "entorno_virtual": true,
-  "dependencias": {
-    "archivo": "requirements.txt",
-    "instalacion": "exitosa",
-    "pip_check": "No broken requirements found."
-  },
   "paquetes": {
     "numpy": "2.5.3",
     "pandas": "3.0.5",
