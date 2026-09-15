@@ -1,6 +1,10 @@
 {
-  "pruebas": 18,
-  "fallos": 0,
-  "errores": 0,
-  "exitosas": true
+  "suite": "F2/tests",
+  "comando": "python -m unittest discover -s F2/tests -v",
+  "ejecucion": "exitosa",
+  "pruebas_ejecutadas": 18,
+  "pruebas_fallidas": 0,
+  "resultado": "OK",
+  "tiempo_segundos": 0.688,
+  "entorno": "Python 3.13.15 / .venv"
 }
