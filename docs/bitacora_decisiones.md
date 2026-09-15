@@ -31,7 +31,6 @@ evidencia y commit efectivo; no inventar identificadores de commit.
 | D17 | Completada en el equipo de Benjamín: retirar filtro nbstripout y revisar el índice | F1: 6 celdas; F2: 12 celdas; verificador --staged satisfactorio antes de publicar resultados | Conservar salidas en Git; aplicar la comprobación en los demás equipos |
 | D18 | Abierta: reconstrucción limpia del entorno y aportes de los demás integrantes | Ejecución Windows comprobada en D20/D21; historial consultado hasta 54da075 con autor Benjamin Araya | Conciliar dependencias, comprobar otro equipo y registrar contribuciones reales de los cuatro integrantes |
 | D19 | Pendiente: autorización de publicación de registros individuales | Revisión automática rechazó subir ordenes.csv por contener nombres/RUT de proveedores | Se publican código, documentación y resultados agregados; original y tablas individuales permanecen locales |
-
 No usar estas cifras si cambia el original sin repetir el diagnóstico. Las métricas
 actualizadas se generan en F2/docs/metricas.json.
 
@@ -52,3 +51,10 @@ actualizadas se generan en F2/docs/metricas.json.
 | ID | Fecha | Responsable | Decisión y motivo | Evidencia |
 |---|---|---|---|---|
 | D22 | 2026-09-13 | Benjamin Araya | Utilizar TeX Live 2026 como dependencia externa de Python y regenerar los insumos antes de compilar el borrador. | Consola local compartida: pdfTeX 1.40.29; scripts/compilar_informe.py completó 3 de 3 pasadas y anunció informe/informe.pdf. La compilación confirma generación del PDF, no la revisión final de su contenido. |
+
+
+## Cambios en .gitignore para incluir dataset
+
+| ID | Fecha | Responsable | Decisión y motivo | Evidencia |
+|---|---|---|---|---|
+| D23 | 2026-09-14 | Alan Cañete | modificacion de .gitignore para contemplar dataset en git push. |
