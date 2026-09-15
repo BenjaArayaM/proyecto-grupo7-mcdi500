@@ -34,7 +34,7 @@ desktop.ini
 .pytest_cache/
 
 # Datos individuales: generación local; publicación pendiente de autorización explícita.
-F1/data/raw/*.csv
+#F1/data/raw/*.csv
 F2/data/processed/*.csv
 F2/docs/conciliacion_firmas.csv
 F2/docs/cruce_exportacion.csv
