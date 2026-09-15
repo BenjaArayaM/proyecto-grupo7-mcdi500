@@ -1,7 +1,7 @@
 {
-  "python": "3.12.0",
+  "python": "3.13.0",
   "sistema": "Windows",
-  "interprete": "C:\\Users\\benja\\OneDrive\\Escritorio\\proyecto-grupo7-mcdi500\\.venv\\Scripts\\python.exe",
+  "interprete": "C:\\Users\\jguai\\Documents\\proyecto-grupo7-mcdi500\\.venv\\Scripts\\python.exe",
   "entorno_virtual": true,
   "paquetes": {
     "numpy": "2.5.3",
