@@ -63,3 +63,9 @@ actualizadas se generan en F2/docs/metricas.json.
 | ID | Fecha | Responsable | Decisión y motivo | Evidencia |
 | --- | --- | --- | --- | --- |
 | D24 | 2026-09-15 | Jorge Guaico | Ejecutar y validar F2 en un segundo equipo Windows con Python 3.13 y el entorno virtual del proyecto para comprobar su reproducibilidad. | 18 pruebas ejecutadas satisfactoriamente (OK); entorno local registrado en evidencias/entorno_F2.json. |
+
+## Validacion local de F2 por Alan
+| ID | Fecha | Responsable | Decisión y motivo | Evidencia |
+| --- | --- | --- | --- | --- |
+| D25 | 2026-09-15 | Alan Cañete | Ejecutar y validar F2 en tercer equipo Windows con Python 3.13, usando entorno virtual del proyecto, reproducibilidad exitosa. |
+
