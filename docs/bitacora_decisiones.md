@@ -58,3 +58,8 @@ actualizadas se generan en F2/docs/metricas.json.
 | ID | Fecha | Responsable | Decisión y motivo | Evidencia |
 |---|---|---|---|---|
 | D23 | 2026-09-14 | Alan Cañete | modificacion de .gitignore para contemplar dataset en git push. |
+## Validación local de F2 por Jorge
+
+| ID | Fecha | Responsable | Decisión y motivo | Evidencia |
+| --- | --- | --- | --- | --- |
+| D24 | 2026-09-15 | Jorge Guaico | Ejecutar y validar F2 en un segundo equipo Windows con Python 3.13 y el entorno virtual del proyecto para comprobar su reproducibilidad. | 18 pruebas ejecutadas satisfactoriamente (OK); entorno local registrado en evidencias/entorno_F2.json. |
