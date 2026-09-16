@@ -261,6 +261,7 @@ El repositorio incorpora un script para revisar la presencia de evidencias y la 
 
 ```bash
 python scripts/verificar_entrega.py
+```
 
 La ejecución realizada revisó:
 
@@ -270,10 +271,11 @@ Evidencia de ejecución disponible.
 
 Esta verificación es una revisión técnica de la entrega y no reemplaza la revisión académica del equipo.
 
-Evidencias de reproducibilidad
+## Evidencias de reproducibilidad
 
 Los principales registros se encuentran en:
 
+```text
 evidencias/
 ├── ejecucion_F1.json
 ├── ejecucion_F2.json
@@ -282,6 +284,7 @@ evidencias/
 ├── entorno_F2.json
 ├── pruebas_F2.json
 └── validacion_base.json
+```
 
 Estos archivos permiten relacionar las ejecuciones con el notebook, entorno, kernel, cantidad de celdas ejecutadas y revisión Git correspondiente.
 
@@ -291,7 +294,7 @@ F1: 6 celdas de código, 0 errores.
 F2: 12 celdas de código, 0 errores.
 Pruebas F2: 18 pruebas, 0 fallos y 0 errores.
 Pipeline F2: 11.177 filas originales y 541 órdenes de salida.
-Decisiones técnicas relevantes
+## Decisiones técnicas relevantes
 Conservación del dato original
 
 El archivo ubicado en F1/data/raw/ no se modifica durante el procesamiento. Las transformaciones se realizan sobre estructuras derivadas.
@@ -317,7 +320,7 @@ Registros duplicados
 
 Las filas idénticas detectadas se documentan y se revisan antes de aplicar cualquier eliminación. La conciliación de firmas deja excepciones explícitas para revisión.
 
-Hallazgos de la validación de datos
+## Hallazgos de la validación de datos
 
 Durante la revisión de F1 y F2 se documentaron, entre otros, los siguientes puntos:
 
@@ -331,7 +334,7 @@ La detección de valores extremos depende de la variable analizada y del denomin
 
 El detalle y la trazabilidad de estos hallazgos se encuentran en docs/vinculacion_mapa.md y en los archivos diagnósticos de F2.
 
-Informe técnico
+## Informe técnico
 
 El informe se encuentra en:
 
@@ -349,23 +352,27 @@ Los elementos auxiliares del informe se encuentran en:
 
 informe/figuras/
 informe/tablas/
-Versionado y flujo de trabajo
+## Versionado y flujo de trabajo
 
 El proyecto utiliza Git para registrar el desarrollo mediante commits y ramas.
 
 Flujo recomendado:
 
+```bash
 git status
 git pull
+```
 
 Realizar los cambios y validaciones correspondientes y luego:
 
+```bash
 git status
 git diff --check
 git add <archivos>
 git commit -m "tipo: descripción breve del cambio"
 git pull
 git push
+```
 
 Las contribuciones individuales se identifican mediante:
 
@@ -376,44 +383,47 @@ registros en docs/bitacora_decisiones.md.
 
 La bitácora permite complementar el historial Git con las decisiones y validaciones relevantes del proyecto.
 
-Convención de commits
+## Convención de commits
 
 Se recomienda utilizar mensajes breves y descriptivos, por ejemplo:
 
+```text
 feat: agrega transformación de datos
 fix: corrige tratamiento de faltantes
 docs: actualiza README
 test: agrega pruebas de preprocesamiento
 chore: actualiza configuración del entorno
-Estado de las fases
-Fase	Estado
-F1 · Definición	Implementada y validada
-F2 · Preprocesamiento	Implementada y validada
-F3	Proyectada
-F4	Proyectada
+```
+## Estado de las fases
+| Fase | Estado |
+|---|---|
+| F1 · Definición | Implementada y validada |
+| F2 · Preprocesamiento | Implementada y validada |
+| F3 | Proyectada |
+| F4 | Proyectada |
 
 F3 y F4 no se presentan como ejecutadas en esta Sumativa 1.
 
-Documentación complementaria
-docs/bitacora_decisiones.md — registro de decisiones y validaciones.
-docs/vinculacion_mapa.md — trazabilidad entre el mapa conceptual y los artefactos implementados.
-docs/matriz_rubrica.md — relación con los criterios de evaluación.
-docs/plan_sumativa1.md — planificación de la Sumativa 1.
-docs/inicio_gitbash.md — apoyo para configuración y flujo Git.
-requirements.txt — dependencias principales del proyecto.
-requirements-validacion.txt — registro histórico de la primera validación estable del entorno.
-Reproducibilidad
+## Documentación complementaria
+- `docs/bitacora_decisiones.md` — registro de decisiones y validaciones.
+- `docs/vinculacion_mapa.md` — trazabilidad entre el mapa conceptual y los artefactos implementados.
+- `docs/matriz_rubrica.md` — relación con los criterios de evaluación.
+- `docs/plan_sumativa1.md` — planificación de la Sumativa 1.
+- `docs/inicio_gitbash.md` — apoyo para configuración y flujo Git.
+- `requirements.txt` — dependencias principales del proyecto.
+- `requirements-validacion.txt` — registro histórico de la primera validación estable del entorno.
+## Reproducibilidad
 
 Para reproducir la validación actual se recomienda:
 
-Clonar o descargar el repositorio.
-Crear un entorno virtual.
-Instalar requirements.txt.
-Ejecutar pip check.
-Registrar el kernel grupo7_mcdi500.
-Ejecutar F1 y F2 mediante scripts/ejecutar_notebooks.py.
-Ejecutar el pipeline de F2.
-Ejecutar las pruebas automatizadas.
-Ejecutar scripts/verificar_entrega.py.
+1. Clonar o descargar el repositorio.
+2. Crear un entorno virtual.
+3. Instalar `requirements.txt`.
+4. Ejecutar `pip check`.
+5. Registrar el kernel `grupo7_mcdi500`.
+6. Ejecutar F1 y F2 mediante `scripts/ejecutar_notebooks.py`.
+7. Ejecutar el pipeline de F2.
+8. Ejecutar las pruebas automatizadas.
+9. Ejecutar `scripts/verificar_entrega.py`.
 
 La secuencia permite verificar por separado el entorno, los notebooks, el pipeline, las pruebas y las evidencias de ejecución.
