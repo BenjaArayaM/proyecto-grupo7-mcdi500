@@ -69,3 +69,9 @@ actualizadas se generan en F2/docs/metricas.json.
 | --- | --- | --- | --- | --- |
 | D25 | 2026-09-15 | Alan Cañete | Ejecutar y validar F2 en tercer equipo Windows con Python 3.13, usando entorno virtual del proyecto, reproducibilidad exitosa. |
 
+
+## Validación local de F2 por Patricio
+
+| ID | Fecha | Responsable | Decisión y motivo | Evidencia |
+| --- | --- | --- | --- | --- |
+| D26 | 2026-09-15 | Patricio Cortez | Ejecutar y validar F2 en un cuarto equipo Windows con Python 3.13, utilizando el entorno virtual y las dependencias definidas por el equipo, para comprobar la reproducibilidad local. | 12 celdas ejecutadas sin errores; 18 pruebas automatizadas satisfactorias (OK); pipeline F2 ejecutado correctamente; evidencia de entorno y ejecución registrada en `evidencias/`. |
