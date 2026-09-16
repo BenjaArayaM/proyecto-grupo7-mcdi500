@@ -34,7 +34,7 @@
 \input{tablas/metricas.tex}
 
 % Completar con datos confirmados; no inventar nombre del docente ni fecha de entrega.
-\newcommand{\Docente}{OMAR IVÁN SALINAS SILVA}
+\newcommand{\Docente}{Omar Iván Salinas Silva}
 \newcommand{\FechaEntrega}{16 de septiembre de 2026}
 \newcommand{\EstadoDocumento}{Borrador técnico para revisión del equipo}
 
@@ -42,6 +42,8 @@
 \hypersetup{pageanchor=false}
 \begin{titlepage}
 \centering
+\includegraphics[width=0.22\textwidth]{Logo_Unab.png}\par
+\vspace{0.4cm}
 {\large Universidad Andrés Bello\par}
 {\large Magíster en Ciencia de Datos e Inteligencia Artificial\par}
 \vspace{1.0cm}
@@ -60,7 +62,6 @@ Alan Cañete Calquin\\
 Patricio Cortez Triviño\\
 Jorge Guaico Ortega
 \vspace{0.8cm}
-
 Docente: \Docente\\
 Fecha de entrega: \FechaEntrega\\
 Versión de trabajo: 16 de septiembre de 2026
@@ -441,24 +442,24 @@ commits de merge.
 \small
 \begin{tabular}{p{2.7cm} p{2.0cm} p{8.0cm}}
 \toprule
-Integrante & Commit & Contribución representativa \
+Integrante & Commit & Contribución representativa \\
 \midrule
-mín Araya & \texttt{9b266b2} & Crea la estructura inicial del proyecto. \
-& \texttt{0a132d4} & Agrega el mapa conceptual corregido según retroalimentación docente. \
-& \texttt{8b4fcb6} & Incorpora la base asistida para revisión del grupo. \
-& \texttt{6632bd9} & Registra ejecución local de F1 en Windows. \
-& \texttt{5a4325e} & Registra validación local y resultados de F2. \
+mín Araya & \texttt{9b266b2} & Crea la estructura inicial del proyecto. \\
+& \texttt{0a132d4} & Agrega el mapa conceptual corregido según retroalimentación docente. \\
+& \texttt{8b4fcb6} & Incorpora la base asistida para revisión del grupo. \\
+& \texttt{6632bd9} & Registra ejecución local de F1 en Windows. \\
+& \texttt{5a4325e} & Registra validación local y resultados de F2. \\
 \midrule
-Alan Cañete & \texttt{fd1e8d0} & Incorpora el dataset utilizado en el proyecto. \
-& \texttt{122bb02} & Ajusta el tratamiento de la excepción del CSV para incorporar el dataset. \
+Alan Cañete & \texttt{fd1e8d0} & Incorpora el dataset utilizado en el proyecto. \\
+& \texttt{122bb02} & Ajusta el tratamiento de la excepción del CSV para incorporar el dataset. \\
 \midrule
-Jorge Guaico & \texttt{009b81d7} & Registra validación local de Jorge en Windows. \
+Jorge Guaico & \texttt{009b81d7} & Registra validación local de Jorge en Windows. \\
 \midrule
-Patricio Cortez & \texttt{ceb01fe} & Valida el entorno Python 3.13 y las dependencias de F2. \
-& \texttt{aa39e91} & Registra la validación de ejecución reproducible de F2. \
-& \texttt{5be9729} & Registra la ejecución del pipeline de F2. \
-& \texttt{621d816} & Valida las pruebas automatizadas de F2. \
-& \texttt{919e9c1} & Registra la validación completa de ejecución de F1 y F2. \
+Patricio Cortez & \texttt{ceb01fe} & Valida el entorno Python 3.13 y las dependencias de F2. \\
+& \texttt{aa39e91} & Registra la validación de ejecución reproducible de F2. \\
+& \texttt{5be9729} & Registra la ejecución del pipeline de F2. \\
+& \texttt{621d816} & Valida las pruebas automatizadas de F2. \\
+& \texttt{919e9c1} & Registra la validación completa de ejecución de F1 y F2. \\
 \bottomrule
 \end{tabular}
 \caption{Contribuciones representativas identificadas en el historial Git.}
@@ -514,17 +515,17 @@ está en \archivo{docs/vinculacion_mapa.md}.
 \small\singlespacing
 \begin{tabularx}{\textwidth}{@{}>{\raggedright\arraybackslash}p{0.24\textwidth}>{\raggedright\arraybackslash}p{0.34\textwidth}Y@{}}
 \toprule
-Concepto & Estado & Evidencia\
+Concepto & Estado & Evidencia\\
 \midrule
-Definición y entorno & Ejecutado y validado en Windows & Notebook F1, configuración y evidencias de ejecución.\
-Adquisición y raw & Lectura y trazabilidad documentadas; acceso compartido según disponibilidad de los insumos & F1/data/raw y manifiesto.\
-Exploración & Implementada y validada & Notebook F2, secciones 2 y 3.\
-Limpieza y transformación & Implementadas y validadas & F2/src, parámetros exportados y evidencias del pipeline.\
-Git versiona la limpieza & Código, resultados, documentación y aportes técnicos versionados & Commits de la tabla \ref{tab:commits} y bitácora.\
-Jupyter documenta exploración & Implementado con salidas conservadas & Notebooks ejecutados y evidencias de ejecución.\
-Rubros & Pertenencia implementada; asignación de montos por rubro mantiene excepciones identificadas & Puente, métricas y excepciones de detalle.\
-Visualización y reporte & Figura diagnóstica e informe LaTeX en desarrollo & Matplotlib, LaTeX y script de compilación.\
-F3 y F4 & Proyectadas & Sin declarar ejecución ni entregables futuros cerrados.\
+Definición y entorno & Ejecutado y validado en Windows & Notebook F1, configuración y evidencias de ejecución.\\
+Adquisición y raw & Lectura y trazabilidad documentadas; acceso compartido según disponibilidad de los insumos & F1/data/raw y manifiesto.\\
+Exploración & Implementada y validada & Notebook F2, secciones 2 y 3.\\
+Limpieza y transformación & Implementadas y validadas & F2/src, parámetros exportados y evidencias del pipeline.\\
+Git versiona la limpieza & Código, resultados, documentación y aportes técnicos versionados & Commits de la tabla \ref{tab:commits} y bitácora.\\
+Jupyter documenta exploración & Implementado con salidas conservadas & Notebooks ejecutados y evidencias de ejecución.\\
+Rubros & Pertenencia implementada; asignación de montos por rubro mantiene excepciones identificadas & Puente, métricas y excepciones de detalle.\\
+Visualización y reporte & Figura diagnóstica e informe LaTeX en desarrollo & Matplotlib, LaTeX y script de compilación.\\
+F3 y F4 & Proyectadas & Sin declarar ejecución ni entregables futuros cerrados.\\
 \bottomrule
 \end{tabularx}
 \end{table}
