@@ -1,0 +1,12 @@
+{
+  "script": "scripts/ejecutar_pipeline.py",
+  "ejecucion": "exitosa",
+  "filas_originales": 11177,
+  "ordenes_salida": 541,
+  "excepciones_detalle": 3,
+  "salidas_generadas": [
+    "F2/data/processed",
+    "F2/docs"
+  ],
+  "entorno": "Python 3.13.15 / .venv"
+}
