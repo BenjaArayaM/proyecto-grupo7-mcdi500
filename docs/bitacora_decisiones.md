@@ -75,3 +75,12 @@ actualizadas se generan en F2/docs/metricas.json.
 | ID | Fecha | Responsable | Decisión y motivo | Evidencia |
 | --- | --- | --- | --- | --- |
 | D26 | 2026-09-15 | Patricio Cortez | Ejecutar y validar F2 en un cuarto equipo Windows con Python 3.13, utilizando el entorno virtual y las dependencias definidas por el equipo, para comprobar la reproducibilidad local. | 12 celdas ejecutadas sin errores; 18 pruebas automatizadas satisfactorias (OK); pipeline F2 ejecutado correctamente; evidencia de entorno y ejecución registrada en `evidencias/`. |
+| D27 | 2026-09-16 | Patricio Cortez | Realizar la validación total de F1 y F2 para comprobar la ejecución completa del proyecto y verificar que ambas fases funcionen correctamente en el entorno local. | F1: 6 celdas ejecutadas sin errores. F2: 12 celdas ejecutadas sin errores y 18 pruebas automatizadas satisfactorias (OK). |
+ 
+## Revisión y ajuste de informe y documentación
+
+| ID | Fecha | Responsable | Decisión y motivo | Evidencia |
+| --- | --- | --- | --- | --- |
+| D28 | 2026-09-16 | Patricio Cortez | Revisar y ajustar la versión final del informe considerando la revisión realizada por el equipo, incorporando las correcciones de presentación y manteniendo la documentación técnica y de reproducibilidad. | `informe/informe.tex`, `informe/referencias.tex` e `informe/informe.pdf` actualizados; compilación LaTeX realizada correctamente en tres pasadas. |
+| D29 | 2026-09-16 | Patricio Cortez | Consolidar la versión final del informe y documentación para la entrega, incorporando la validación de F1 y F2 aceptada por el grupo y eliminando elementos internos de revisión que ya no corresponden a la versión final. | Versión final del informe revisada por el equipo; cambios integrados en la rama `F2-Validacion-Patricio` y commit `70863d7`. |
+| D30 | 2026-09-16 | Patricio Cortez | Integrar en `main` la versión de F2 validada y aceptada por el grupo, dejando centralizados los cambios finales del informe y la documentación del proyecto. | Merge de `F2-Validacion-Patricio` a `main`; commit `cf9ba6e` con mensaje `Merge F2: incorpora validación verificada y aceptada por el grupo`; cambios publicados en `origin/main`. |
