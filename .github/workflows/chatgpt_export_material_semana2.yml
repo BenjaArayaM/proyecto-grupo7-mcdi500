@@ -1,0 +1,34 @@
+name: Export Material Semana 2
+
+on:
+  push:
+    branches:
+      - chatgpt-export-material-semana2-20260921
+
+jobs:
+  package:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download source repository
+        run: |
+          set -euo pipefail
+          git clone --depth 1 https://github.com/magistercienciadatos/Material_Didactico_Semana2.git
+
+      - name: Install RAR
+        run: |
+          set -euo pipefail
+          curl -fL https://www.rarlab.com/rar/rarlinux-x64-723.tar.gz -o /tmp/rarlinux.tar.gz
+          tar -xzf /tmp/rarlinux.tar.gz -C /tmp
+
+      - name: Create RAR archive
+        run: |
+          set -euo pipefail
+          /tmp/rar/rar a -r -m5 Material_Didactico_Semana2.rar Material_Didactico_Semana2
+
+      - name: Upload archive
+        uses: actions/upload-artifact@v4
+        with:
+          name: Material_Didactico_Semana2_RAR
+          path: Material_Didactico_Semana2.rar
+          if-no-files-found: error
+          compression-level: 0
