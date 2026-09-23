@@ -1,7 +1,11 @@
 {
   "python": "3.13.15",
   "sistema": "Windows",
+<<<<<<< Updated upstream
   "interprete": "C:\\Users\\patri\\Documents\\GitHub\\proyecto-grupo7-mcdi500\\.venv\\Scripts\\python.exe",
+=======
+  "interprete": "C:\\Users\\alanp\\Desktop\\personal\\Estudios\\Magister_Data_Science e IA\\1_Programacion_para_la_ciencia_de_datos\\Trabajos_Equipo\\proyecto-grupo7-mcdi500\\.venv\\Scripts\\python.exe",
+>>>>>>> Stashed changes
   "entorno_virtual": true,
   "paquetes": {
     "numpy": "2.5.3",
