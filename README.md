@@ -427,3 +427,22 @@ Para reproducir la validación actual se recomienda:
 9. Ejecutar `scripts/verificar_entrega.py`.
 
 La secuencia permite verificar por separado el entorno, los notebooks, el pipeline, las pruebas y las evidencias de ejecución.
+
+## Avance Fase 3
+
+Durante la Fase 3 se incorporó una evaluación de eficiencia algorítmica aplicada a la detección de valores atípicos mediante IQR sobre la variable `MontoNetoOC_CLP`.
+
+Se compararon dos implementaciones funcionalmente equivalentes:
+
+- una basada en bucle;
+- una basada en operaciones vectorizadas con pandas.
+
+Ambas identificaron 61 valores potencialmente atípicos sobre 541 observaciones. La comparación de tiempos se realizó mediante `time.perf_counter()`, utilizando 1.000 ejecuciones por medición y tres repeticiones por implementación.
+
+Los principales archivos incorporados en esta fase son:
+
+- `F3/notebooks/F3_Formativa_Eficiencia_IQR.ipynb`
+- `F3/src/funciones_iqr.py`
+- `F3/docs/f3_s02_grupo7.pdf`
+
+La organización de esta fase separa la ejecución y documentación del análisis en el notebook de las funciones reutilizables almacenadas en `F3/src`.
