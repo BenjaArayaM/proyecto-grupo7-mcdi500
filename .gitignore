@@ -39,3 +39,4 @@ F2/data/processed/*.csv
 F2/docs/conciliacion_firmas.csv
 F2/docs/cruce_exportacion.csv
 F2/docs/excepciones_detalle.csv
+.jupyter/
