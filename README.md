@@ -132,7 +132,7 @@ Ese archivo conserva la evidencia histórica de dicha validación inicial y **no
 
 Posteriormente se revisaron las versiones y disponibilidad de las bibliotecas utilizadas y se continuó la validación en un entorno local actualizado.
 
-### Entorno utilizado para la validación actual
+### Entorno histórico de validación local de F1 y F2
 
 * Sistema operativo: Windows
 * Python: 3.13.15
@@ -171,10 +171,12 @@ python -m ipykernel install --user --name grupo7_mcdi500 --display-name "Python 
 
 ### macOS / Linux
 
+Para la revisión de Formativa 3 se proporciona un conjunto de dependencias directo y comprobado; el listado histórico de Windows no es un bloqueo multiplataforma.
+
 ```bash
-python3 -m venv .venv
-source .venv/bin/activate
-python -m pip install -r requirements.txt
+python3 -m venv .venv-f3
+source .venv-f3/bin/activate
+python -m pip install -r requirements-formativa3.txt
 python -m pip check
 ```
 
@@ -334,7 +336,7 @@ La detección de valores extremos depende de la variable analizada y del denomin
 
 El detalle y la trazabilidad de estos hallazgos se encuentran en docs/vinculacion_mapa.md y en los archivos diagnósticos de F2.
 
-## Informe técnico
+## Informe técnico de F1 y F2
 
 El informe se encuentra en:
 
@@ -360,7 +362,7 @@ Flujo recomendado:
 
 ```bash
 git status
-git pull
+git pull --ff-only
 ```
 
 Realizar los cambios y validaciones correspondientes y luego:
@@ -370,7 +372,7 @@ git status
 git diff --check
 git add <archivos>
 git commit -m "tipo: descripción breve del cambio"
-git pull
+git pull --ff-only
 git push
 ```
 
@@ -399,10 +401,10 @@ chore: actualiza configuración del entorno
 |---|---|
 | F1 · Definición | Implementada y validada |
 | F2 · Preprocesamiento | Implementada y validada |
-| F3 | Proyectada |
+| F3 · Formativa | Entrega evaluada; revisión técnica ejecutada. Validación e integración del grupo pendientes. |
 | F4 | Proyectada |
 
-F3 y F4 no se presentan como ejecutadas en esta Sumativa 1.
+En la Sumativa 1, F3 y F4 estaban proyectadas. La Formativa 3 y su revisión se documentan en los apartados siguientes; F4 continúa pendiente.
 
 ## Documentación complementaria
 - `docs/bitacora_decisiones.md` — registro de decisiones y validaciones.
@@ -412,9 +414,9 @@ F3 y F4 no se presentan como ejecutadas en esta Sumativa 1.
 - `docs/inicio_gitbash.md` — apoyo para configuración y flujo Git.
 - `requirements.txt` — dependencias principales del proyecto.
 - `requirements-validacion.txt` — registro histórico de la primera validación estable del entorno.
-## Reproducibilidad
+## Reproducibilidad de F1 y F2
 
-Para reproducir la validación actual se recomienda:
+El procedimiento histórico de esas fases es:
 
 1. Clonar o descargar el repositorio.
 2. Crear un entorno virtual.
@@ -428,7 +430,7 @@ Para reproducir la validación actual se recomienda:
 
 La secuencia permite verificar por separado el entorno, los notebooks, el pipeline, las pruebas y las evidencias de ejecución.
 
-## Avance Fase 3
+## Entrega original de Formativa 3
 
 Durante la Fase 3 se incorporó una evaluación de eficiencia algorítmica aplicada a la detección de valores atípicos mediante IQR sobre la variable `MontoNetoOC_CLP`.
 
@@ -446,3 +448,39 @@ Los principales archivos incorporados en esta fase son:
 - `F3/docs/f3_s02_grupo7.pdf`
 
 La organización de esta fase separa la ejecución y documentación del análisis en el notebook de las funciones reutilizables almacenadas en `F3/src`.
+
+
+## Revisión de Formativa 3 según retroalimentación docente
+
+La entrega evaluada obtuvo 53/69. Esta revisión añade pruebas reales, límites IQR
+reutilizables y mediciones de tiempo/memoria para siete tamaños. Conserva F2 como
+productor de `ordenes.csv`, las 541 OC y los 61 extremos, sin nuevas imputaciones.
+
+- Arquitectura y relación entre fases: `F3/docs/arquitectura.md`.
+- Casos y resultados de prueba: `F3/tests/test_funciones_iqr.py` y `F3/evidencias`.
+- Datos del experimento: `F3/docs/benchmark_iqr.csv`, `benchmark_iqr_muestras.json` y `resultados_iqr.json`.
+- Correspondencia con la evaluación: `F3/docs/correcciones_formativa3.md`.
+- Informe de entrega: `F3/docs/f3_s02_grupo7.pdf`; fuente reproducible en LaTeX junto al PDF.
+- Dependencias directas comprobadas: `requirements-formativa3.txt`. No se reemplaza automáticamente el entorno de cada integrante.
+
+Desde la raíz y con el entorno activado:
+
+```bash
+python scripts/ejecutar_pipeline.py
+python scripts/ejecutar_formativa3.py --kernel grupo7_mcdi500 --contexto revision_local_windows
+python scripts/verificar_formativa3.py
+python scripts/compilar_formativa3.py
+```
+
+El notebook contiene nueve celdas de código después de extraer lógica a módulos. El ejecutor
+usa un kernel nuevo, conserva salidas y verifica todas las celdas. Cierre su pestaña en Jupyter
+antes de ejecutar por terminal para evitar que una copia abierta sobrescriba el resultado.
+El PDF se compila desde las métricas de la ejecución registrada, no desde tiempos escritos a mano.
+
+El bucle y pandas son O(n), pero pandas prepara máscaras y selección; ese costo fijo puede dominar
+en n pequeño. Los tamaños mayores son réplicas de carga, no nuevas observaciones. El pico de
+`tracemalloc` no representa la RAM total. La decisión de rendimiento depende de la máquina.
+
+Las evidencias incluidas en el paquete están rotuladas `validacion_asistida_linux`; cada integrante
+debe generar y revisar su ejecución antes de atribuirse una validación. `.mailmap` unifica la
+presentación de alias verificados con el mismo correo, sin reescribir commits.

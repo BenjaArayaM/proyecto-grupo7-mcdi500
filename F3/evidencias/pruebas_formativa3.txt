@@ -1,0 +1,29 @@
+test_cruce_es_intervalo_y_no_punto_exacto (test_funciones_iqr.TestBenchmark.test_cruce_es_intervalo_y_no_punto_exacto) ... ok
+test_medicion_conserva_muestras_y_equivalencia (test_funciones_iqr.TestBenchmark.test_medicion_conserva_muestras_y_equivalencia) ... ok
+test_replica_exacta_no_modifica_original (test_funciones_iqr.TestBenchmark.test_replica_exacta_no_modifica_original) ... ok
+test_tamano_invalido (test_funciones_iqr.TestBenchmark.test_tamano_invalido) ... ok
+test_carga_y_raiz (test_funciones_iqr.TestCarga.test_carga_y_raiz) ... ok
+test_falta_archivo (test_funciones_iqr.TestCarga.test_falta_archivo) ... ok
+test_no_coacciona_texto_a_faltante (test_funciones_iqr.TestCarga.test_no_coacciona_texto_a_faltante) ... ok
+test_no_omite_faltantes (test_funciones_iqr.TestCarga.test_no_omite_faltantes) ... ok
+test_rechaza_marca_ambigua (test_funciones_iqr.TestCarga.test_rechaza_marca_ambigua) ... ok
+test_rechaza_oc_duplicada (test_funciones_iqr.TestCarga.test_rechaza_oc_duplicada) ... ok
+test_igualdad_en_limites_no_es_atipico (test_funciones_iqr.TestDeteccion.test_igualdad_en_limites_no_es_atipico) ... ok
+test_preserva_orden_y_multiplicidad (test_funciones_iqr.TestDeteccion.test_preserva_orden_y_multiplicidad) ... ok
+test_serie_vacia (test_funciones_iqr.TestDeteccion.test_serie_vacia) ... ok
+test_sin_atipicos (test_funciones_iqr.TestDeteccion.test_sin_atipicos) ... ok
+test_todos_atipicos_limites_externos (test_funciones_iqr.TestDeteccion.test_todos_atipicos_limites_externos) ... ok
+test_mismas_observaciones_y_limites_que_f2 (test_funciones_iqr.TestIntegracionF2.test_mismas_observaciones_y_limites_que_f2) ... ok
+test_constante (test_funciones_iqr.TestLimites.test_constante) ... ok
+test_cuartiles_conocidos (test_funciones_iqr.TestLimites.test_cuartiles_conocidos) ... ok
+test_factor_invalido (test_funciones_iqr.TestLimites.test_factor_invalido) ... ok
+test_no_modifica_y_factor_configurable (test_funciones_iqr.TestLimites.test_no_modifica_y_factor_configurable) ... ok
+test_rechaza_faltantes_e_infinitos (test_funciones_iqr.TestLimites.test_rechaza_faltantes_e_infinitos) ... ok
+test_tipo_no_numerico (test_funciones_iqr.TestLimites.test_tipo_no_numerico) ... ok
+test_un_valor (test_funciones_iqr.TestLimites.test_un_valor) ... ok
+test_vacia_no_estima_cuartiles (test_funciones_iqr.TestLimites.test_vacia_no_estima_cuartiles) ... ok
+
+----------------------------------------------------------------------
+Ran 24 tests in 0.555s
+
+OK

@@ -1,0 +1,9 @@
+{
+  "contexto": "revision_local_benjamin_windows",
+  "sha256_resultados": "96bc7195c72ed5052453c1589e003e43ed8e083c36866a8355e1c790b9f95bef",
+  "sha256_fuente_tex": "9f00ef7be5ae6aaeef8bfedfcfd4bd393f313e836fb09d03a7eddfb54261c6e4",
+  "sha256_pdf": "2513efa421192515dc68c41de866805c3478c427187d95d0c24fc79aeb32e72d",
+  "motor": "xelatex",
+  "pasadas": 3,
+  "fuente": "Arial"
+}
