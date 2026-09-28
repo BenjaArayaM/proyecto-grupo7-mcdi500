@@ -57,7 +57,7 @@
 {\Large Preparación reproducible de órdenes de Compra Ágil de Valparaíso\par}
 \vspace{1.0cm}
 {\large Grupo 7\par}
-Benjamin Araya Matta\\
+Benjamín Araya Matta\\
 Alan Cañete Calquin\\
 Patricio Cortez Triviño\\
 Jorge Guaico Ortega\\
@@ -95,9 +95,9 @@ los totales y la interpretación de cualquier gráfico posterior.
 
 La Fase 1 define problema, objetivos y entorno; la Fase 2 obtiene, explora, prepara
 y valida. Esta delimitación responde a la guía y a la rúbrica suministradas
-\citep{guia,rubrica}. El análisis sustantivo y la comunicación final de las fases
-posteriores utilizarán las salidas verificadas, ajustándose a las guías de F3 y F4
-cuando estén disponibles.
+\citep{guia,rubrica}. El análisis sustantivo y la comunicación final se desarrollarán
+en las fases posteriores, utilizando las salidas verificadas y manteniendo para F4 las
+decisiones analíticas que requieren una definición metodológica adicional.
 
 La base recibió inicialmente una validación asistida realizada por Benjamín
 Araya, utilizando un entorno con Python 3.12.14. Posteriormente, Jorge Guaico
@@ -117,15 +117,8 @@ registró tres excepciones de detalle que quedaron identificadas para revisión.
 La ejecución se realizó mediante entornos virtuales locales creados a partir
 de las dependencias versionadas en el repositorio. El entorno virtual
 \texttt{.venv} no forma parte del repositorio y debe ser recreado por cada
-integrante al configurar el proyecto en un nuevo equipo. Además, el informe 
+integrante al configurar el proyecto en un nuevo equipo. Además, el informe
 fue compilado localmente mediante MiKTeX.
-
-Estas comprobaciones acreditan la ejecución del proyecto en los distintos
-entornos locales utilizados por los integrantes del grupo. La validación
-continuó posteriormente en equipos con Windows 10 y Windows 11, permitiendo
-contrastar la ejecución de F1 y F2 entre distintos equipos y versiones de
-Python dentro de la rama 3.13. La revisión colectiva de las decisiones y
-evidencias forma parte de la preparación final del informe.
 
 \section{Problemática, objetivos y alcance}
 
@@ -133,9 +126,10 @@ evidencias forma parte de la preparación final del informe.
 
 El problema técnico consiste en convertir una exportación que mezcla cabeceras,
 ítems y cotizaciones en tablas reproducibles, sin multiplicar importes ni inventar
-atributos faltantes. El objetivo general es preparar un entorno y un pipeline que
-permitan caracterizar las órdenes observadas, conservando procedencia y trazabilidad
-de las decisiones.
+atributos faltantes. El objetivo general es preparar un entorno reproducible y un
+pipeline de procesamiento que permitan caracterizar la distribución de los montos
+de las órdenes de compra según proveedores, rubros y mes de envío, conservando la
+procedencia y trazabilidad de las decisiones.
 
 \subsection{Objetivos específicos verificables}
 
@@ -166,8 +160,17 @@ decisión posterior sobre el universo descriptivo.
 
 El archivo contiene únicamente valores SI en \archivo{ProveedorSeleccionado};
 por ello, no permite una comparación documentada entre ofertas ganadoras y
-perdedoras. Los montos por rubro quedan condicionados a conciliar el detalle y
-resolver sus multiplicidades.
+perdedoras. Los montos por rubro quedan condicionados a conciliar el detalle
+y resolver sus multiplicidades. Esta entrega mantiene las relaciones de
+pertenencia sin realizar una asignación monetaria entre rubros. La definición
+y justificación de la regla de asignación de montos por rubro queda pendiente
+para la Fase 4, donde se abordará como parte del análisis sustantivo final.
+
+Las tres órdenes cuyo detalle no concilia con la cabecera también se mantienen
+preservadas. En esta etapa no se eliminan ni se redistribuyen sus registros.
+La definición del tratamiento de estas órdenes en los agregados finales queda
+pendiente para F4, dejando explícita la consecuencia de la alternativa
+ seleccionada.
 
 \section{Fase 1: entorno y procedencia}
 
@@ -244,7 +247,7 @@ coincidentes entre ambas fases.
 \toprule
 Componente registrado & Versión observada\\
 \midrule
-Python & 3.13.x\\
+Python & 3.13.15\\
 NumPy & 2.5.3\\
 pandas & 3.0.5\\
 Matplotlib & 3.11.1\\
@@ -314,8 +317,10 @@ tolerancia absoluta de 1 CLP, en \OrdenesConciliadas{} órdenes.
 En 2427-264-AG25 existen dos filas idénticas de un millón de CLP y una cabecera de
 dos millones. Borrar una de esas filas perdería un millón del detalle. Por ello,
 se preservan las discrepancias, no se exporta un detalle monetario definitivo y se
-solicita contrastar las tres órdenes con la fuente. Conciliar numéricamente las
-otras órdenes tampoco prueba que se haya reconstruido cada línea real.
+solicita contrastar las tres órdenes con la fuente. La conciliación monetaria permite
+verificar consistencia entre los agregados disponibles, pero no demuestra por sí sola
+que cada línea del detalle corresponda a una línea real de la orden original.
+La definición de su tratamiento en los agregados finales queda pendiente para F4.
 
 \subsection{Proveedores y jerarquía de rubros}
 
@@ -395,6 +400,29 @@ clasificación procede del archivo y no se verificó con ventas de los proveedor
 Si se realiza modelado predictivo, los parámetros y vocabularios deberán ajustarse
 solo sobre entrenamiento; esta sumativa no declara un modelo entrenado.
 
+\section{Fase 3: modularización y optimización del procesamiento}
+
+La Fase 3 se orientó a mejorar la estructura técnica del procesamiento desarrollado
+en las fases anteriores, manteniendo las decisiones y resultados obtenidos en F1 y
+F2. El trabajo se concentró en la modularización del código, la incorporación de
+una arquitectura orientada a objetos y la validación automatizada del pipeline.
+
+Como parte de la optimización, se evaluó el comportamiento del procesamiento
+mediante una comparación entre una implementación basada en bucles y otra basada
+en operaciones de pandas. La evaluación consideró tiempo de ejecución y memoria
+utilizada para distintos tamaños de entrada, permitiendo identificar el rango en
+que cambia el comportamiento relativo de ambas alternativas.
+
+La Fase 3 también incorporó pruebas automatizadas y una reorganización de las
+responsabilidades del procesamiento, separando componentes asociados al tratamiento
+de datos, generación de métricas y exportación de resultados. Los resultados
+detallados de esta implementación y su validación se presentan en las secciones
+siguientes.
+
+Las decisiones metodológicas relativas a la asignación monetaria por rubro y al
+tratamiento definitivo de las tres órdenes no conciliadas se mantienen pendientes
+para la Fase 4.
+
 \section{Codificación funcional y validación}
 
 El pipeline separa lectura, perfil, validación de cabeceras, conversiones, relaciones,
@@ -444,7 +472,7 @@ commits de merge.
 \toprule
 Integrante & Commit & Contribución representativa \\
 \midrule
-mín Araya & \texttt{9b266b2} & Crea la estructura inicial del proyecto. \\
+Benjamín Araya & \texttt{9b266b2} & Crea la estructura inicial del proyecto. \\
 & \texttt{0a132d4} & Agrega el mapa conceptual corregido según retroalimentación docente. \\
 & \texttt{8b4fcb6} & Incorpora la base asistida para revisión del grupo. \\
 & \texttt{6632bd9} & Registra ejecución local de F1 en Windows. \\
@@ -492,10 +520,11 @@ los commits mediante \archivo{scripts/verificar_entrega.py} con la opción
 comprobó la presencia de celdas ejecutadas y salidas; no certifica por sí sola la
 corrección metodológica ni la calificación del equipo.
 
-El código, los notebooks con resultados, la documentación y las evidencias de
-validación se encuentran publicados en la rama de trabajo. El original y las
-tablas individuales se mantienen como insumos de trabajo y su tratamiento se
-documenta mediante los archivos y evidencias disponibles en el repositorio.
+El código, los notebooks con resultados, la documentación y las evidencias
+de validación se encuentran publicados en la rama principal del repositorio.
+El original y las tablas individuales se mantienen como insumos de trabajo y
+su tratamiento se documenta mediante los archivos y evidencias disponibles en
+el repositorio.
 Las dependencias fueron instaladas y comprobadas en el entorno local utilizado
 para la validación final, y la ejecución de F1 y F2 fue contrastada en equipos
 con Windows 10 y Windows 11. El entorno virtual y los auxiliares de compilación
@@ -521,11 +550,13 @@ Definición y entorno & Ejecutado y validado en Windows & Notebook F1, configura
 Adquisición y raw & Lectura y trazabilidad documentadas; acceso compartido según disponibilidad de los insumos & F1/data/raw y manifiesto.\\
 Exploración & Implementada y validada & Notebook F2, secciones 2 y 3.\\
 Limpieza y transformación & Implementadas y validadas & F2/src, parámetros exportados y evidencias del pipeline.\\
-Git versiona la limpieza & Código, resultados, documentación y aportes técnicos versionados & Commits de la tabla \ref{tab:commits} y bitácora.\\
+Git versiona la limpieza & Código, resultados, documentación y aportes técnicos versionados & Commits de la tabla \ref{tab:contribuciones_git} y bitácora.\\
 Jupyter documenta exploración & Implementado con salidas conservadas & Notebooks ejecutados y evidencias de ejecución.\\
 Rubros & Pertenencia implementada; asignación de montos por rubro mantiene excepciones identificadas & Puente, métricas y excepciones de detalle.\\
 Visualización y reporte & Figura diagnóstica e informe LaTeX en desarrollo & Matplotlib, LaTeX y script de compilación.\\
-F3 y F4 & Proyectadas & Sin declarar ejecución ni entregables futuros cerrados.\\
+F3 y F4 & F3 y F4 posteriores a esta entrega & Las fases posteriores contemplan
+la profundización técnica, el análisis sustantivo y la definición de las decisiones
+metodológicas pendientes, reservadas para F4.\\
 \bottomrule
 \end{tabularx}
 \end{table}
@@ -537,8 +568,12 @@ F3 y F4 & Proyectadas & Sin declarar ejecución ni entregables futuros cerrados.
 La decisión central es separar las unidades presentes en el archivo. Validar
 atributos de cabecera permite obtener una tabla de órdenes sin multiplicar sus
 importes. Sin embargo, la conciliación de firmas no resuelve todas las multiplicidades
-del detalle. Esta limitación impide asignar montos por rubro con la evidencia actual,
-aunque sí permite conservar y estudiar relaciones de pertenencia.
+del detalle. Esta limitación impide realizar en esta etapa una asignación monetaria
+defendible por rubro. Por ello, F1 y F2 mantienen las relaciones de pertenencia y
+documentan las excepciones sin forzar una distribución de montos. La regla de
+asignación y el tratamiento definitivo de las órdenes no conciliadas quedan como
+decisiones analíticas para F4, donde deberán justificarse y aplicarse de manera
+reproducible.
 
 Las alternativas descartadas tienen consecuencias observables: eliminar por
 actividad perdería 139 órdenes; imputar la moda asignaría información desconocida;
