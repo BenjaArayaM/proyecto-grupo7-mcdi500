@@ -4,7 +4,7 @@ Preparación reproducible de órdenes de Compra Ágil de la Municipalidad de Val
 
 La pregunta central del mapa conceptual es cómo se distribuyen los montos por proveedor, rubro y mes. En la **Sumativa 1**, **F1** define el problema, los datos y el entorno de trabajo, mientras **F2** desarrolla la exploración, limpieza, transformación, diagnóstico y validación inicial de los datos.
 
-**Estado:** base de trabajo para revisión del equipo. F1 y F2 cuentan con validaciones locales y evidencias de ejecución; F3 y F4 permanecen proyectadas según las futuras etapas del proyecto.
+**Estado:** F1 y F2 se encuentran implementadas y validadas; F3 Formativa fue integrada, validada y publicada en `main`. F4 permanece proyectada según las futuras etapas del proyecto.
 
 ---
 
@@ -401,7 +401,7 @@ chore: actualiza configuración del entorno
 |---|---|
 | F1 · Definición | Implementada y validada |
 | F2 · Preprocesamiento | Implementada y validada |
-| F3 · Formativa | Entrega evaluada; revisión técnica ejecutada. Validación e integración del grupo pendientes. |
+| F3 · Formativa | Integrada, validada y publicada en `main` |
 | F4 | Proyectada |
 
 En la Sumativa 1, F3 y F4 estaban proyectadas. La Formativa 3 y su revisión se documentan en los apartados siguientes; F4 continúa pendiente.
@@ -453,8 +453,9 @@ La organización de esta fase separa la ejecución y documentación del análisi
 ## Revisión de Formativa 3 según retroalimentación docente
 
 La entrega evaluada obtuvo 53/69. Esta revisión añade pruebas reales, límites IQR
-reutilizables y mediciones de tiempo/memoria para siete tamaños. Conserva F2 como
-productor de `ordenes.csv`, las 541 OC y los 61 extremos, sin nuevas imputaciones.
+reutilizables y mediciones de tiempo/memoria para siete tamaños. La integración posterior
+incorpora además la arquitectura POO de F3, conservando F2 como productor de `ordenes.csv`,
+las 541 OC y los 61 extremos, sin nuevas imputaciones.
 
 - Arquitectura y relación entre fases: `F3/docs/arquitectura.md`.
 - Casos y resultados de prueba: `F3/tests/test_funciones_iqr.py` y `F3/evidencias`.
@@ -467,14 +468,14 @@ Desde la raíz y con el entorno activado:
 
 ```bash
 python scripts/ejecutar_pipeline.py
-python scripts/ejecutar_formativa3.py --kernel grupo7_mcdi500 --contexto revision_local_windows
+python scripts/ejecutar_formativa3.py
 python scripts/verificar_formativa3.py
 python scripts/compilar_formativa3.py
 ```
 
-El notebook contiene nueve celdas de código después de extraer lógica a módulos. El ejecutor
-usa un kernel nuevo, conserva salidas y verifica todas las celdas. Cierre su pestaña en Jupyter
-antes de ejecutar por terminal para evitar que una copia abierta sobrescriba el resultado.
+El notebook contiene 11 celdas de código en la ejecución actualmente validada. El ejecutor
+usa un proceso de kernel nuevo, conserva las salidas y verifica las celdas ejecutadas. La ejecución
+registrada de F3 no presentó errores.
 El PDF se compila desde las métricas de la ejecución registrada, no desde tiempos escritos a mano.
 
 El bucle y pandas son O(n), pero pandas prepara máscaras y selección; ese costo fijo puede dominar
