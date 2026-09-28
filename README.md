@@ -89,7 +89,8 @@ En términos generales:
 * **Jerarquía de rubros:** conservación de N1, N2 y N3.
 * **Git/GitHub:** control de versiones, ramas y trazabilidad.
 * **Informe técnico:** resultados documentados en LaTeX y PDF.
-* **F3/F4:** etapas proyectadas, sin afirmar ejecución en esta Sumativa 1.
+* **F3/F4:** la Sumativa 1 las contemplaba como etapas posteriores; actualmente F3
+  Formativa se encuentra implementada e integrada, mientras F4 continúa proyectada.
 
 ---
 
@@ -404,7 +405,9 @@ chore: actualiza configuración del entorno
 | F3 · Formativa | Integrada, validada y publicada en `main` |
 | F4 | Proyectada |
 
-En la Sumativa 1, F3 y F4 estaban proyectadas. La Formativa 3 y su revisión se documentan en los apartados siguientes; F4 continúa pendiente.
+En la planificación original de la Sumativa 1, F3 y F4 estaban proyectadas. La Formativa 3
+y su revisión se documentan en los apartados siguientes. El estado actual del repositorio refleja
+la posterior implementación e integración de F3; F4 continúa pendiente.
 
 ## Documentación complementaria
 - `docs/bitacora_decisiones.md` — registro de decisiones y validaciones.
