@@ -18,6 +18,51 @@ estudiar dos algoritmos sobre exactamente la misma entrada.
 | Notebook F3 | Orquestación, gráficos, contraste e interpretación | La narrativa queda junto a evidencias; la lógica reutilizable permanece importable. |
 | `F3/evidencias` y `F3/docs` | Pruebas, hash, versiones, muestras, tablas, figuras e informe | Permiten revisar qué código y datos produjeron cada resultado. |
 
+## Arquitectura orientada a objetos
+
+La integración de F3 incorpora una arquitectura orientada a objetos para organizar el
+flujo de preparación, generación de métricas y exportación de resultados. Esta
+arquitectura no reemplaza el núcleo experimental de IQR: separa el pipeline de
+procesamiento de las funciones utilizadas específicamente para comparar estrategias
+algorítmicas.
+
+| Clase | Responsabilidad | Estado principal |
+|---|---|---|
+| `PipelineCompraAgil` | Coordinar el flujo completo de carga, validación, transformación, cálculo de métricas y exportación | Configuración y raíz del proyecto |
+| `TransformadorDatos` | Encapsular la proyección, preparación y construcción de variables | Configuración del pipeline |
+| `GeneradorMetricas` | Centralizar el cálculo y organización de métricas sobre los datos procesados | Datos, órdenes y configuración |
+| `ExportadorResultados` | Generar y persistir las tablas y resultados derivados del procesamiento | Resultados y configuración de salida |
+| `EstrategiaFaltantes` | Definir el contrato común para las políticas de tratamiento de valores faltantes | Interfaz de estrategia |
+| `EstrategiaEliminarOrden` | Eliminar registros según la política definida para faltantes | Parámetros propios de la estrategia |
+| `EstrategiaImputarModa` | Resolver faltantes mediante imputación por moda | Parámetros propios de la estrategia |
+| `EstrategiaConservarMarca` | Conservar los registros y representar los faltantes mediante una marca | Parámetros propios de la estrategia |
+
+`EstrategiaFaltantes` funciona como abstracción común y sus tres implementaciones
+concretas utilizan herencia y polimorfismo. El patrón Strategy permite cambiar la
+política de tratamiento de faltantes sin modificar el flujo principal del pipeline.
+Esto mejora la cohesión porque cada clase concentra una responsabilidad específica y
+reduce el acoplamiento entre las decisiones de transformación y la coordinación del
+proceso.
+
+La arquitectura mantiene además una separación clara entre responsabilidades:
+`PipelineCompraAgil` coordina, `TransformadorDatos` transforma, `GeneradorMetricas`
+calcula y `ExportadorResultados` persiste. Las clases reciben la configuración y los
+datos que necesitan mediante sus atributos, evitando depender del estado implícito de
+un notebook.
+
+El núcleo algorítmico de IQR permanece deliberadamente separado. La función
+`marcar_iqr()` reutiliza `calcular_limites_iqr()` para obtener límites estadísticos
+comunes, mientras que las implementaciones por bucle y vectorización se mantienen como
+estrategias experimentales equivalentes. De esta forma, la POO se utiliza donde aporta
+organización y encapsulamiento del flujo, sin convertir artificialmente cada función
+estadística en una clase.
+
+La integración conserva la relación entre fases: F2 continúa siendo el productor de
+los datos procesados y F3 consume esos resultados para el análisis algorítmico y la
+experimentación. La integración del pipeline fue validada con 541 órdenes procesadas,
+1.683 relaciones de rubros, 541 variables generadas y 32 métricas, además de las
+pruebas automatizadas y la ejecución reproducible del notebook.
+
 ## Evolución respecto de la entrega
 
 La entrega tenía dos funciones de filtrado y cuartiles dentro del notebook. La revisión añade
@@ -36,7 +81,7 @@ corrección porque modificaría innecesariamente una fase previa.
 
 - **Todo en el notebook:** facilita un prototipo, pero impide probar por separado los contratos y mezcla preparación con medición. Se descarta.
 - **Copiar todo F2 dentro de F3:** crea dos versiones de reglas monetarias y de faltantes. Se descarta.
-- **Funciones sin estado:** suficientes para la formativa y compatibles con las dos estrategias. Se mantienen; no se agrega una jerarquía de clases sin un requisito de estado.
+- **Funciones estadísticas sin estado:** se mantienen en el núcleo experimental IQR porque son suficientes para comparar las estrategias algorítmicas. El pipeline de procesamiento, en cambio, utiliza clases con estado y responsabilidades separadas.
 - **Recursión:** no aporta al recorrido de una serie plana. Se reconsideraría ante una estructura jerárquica de profundidad desconocida.
 - **Salida como lista:** conserva la API entregada, el orden y los repetidos. No preserva índices; la trazabilidad por OC se verifica adicionalmente con códigos y máscaras.
 
