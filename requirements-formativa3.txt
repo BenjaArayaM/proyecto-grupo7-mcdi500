@@ -1,0 +1,9 @@
+# Entorno de validación asistida: Python 3.12.14 / Linux.
+# Entorno alternativo reproducible; no reemplaza el requirements.txt del grupo.
+numpy==2.3.5
+pandas==2.2.3
+matplotlib==3.10.8
+nbformat==5.10.4
+nbclient==0.10.2
+ipykernel==6.30.1
+jupyterlab==4.4.10

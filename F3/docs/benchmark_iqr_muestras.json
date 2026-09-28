@@ -1,0 +1,548 @@
+[
+  {
+    "n": 541,
+    "metodo": "bucle",
+    "repeticion": 1,
+    "iteraciones": 1000,
+    "tiempo_total_s": 0.05062639992684126
+  },
+  {
+    "n": 541,
+    "metodo": "pandas",
+    "repeticion": 1,
+    "iteraciones": 1000,
+    "tiempo_total_s": 0.18143610004335642
+  },
+  {
+    "n": 541,
+    "metodo": "pandas",
+    "repeticion": 2,
+    "iteraciones": 1000,
+    "tiempo_total_s": 0.1809839999768883
+  },
+  {
+    "n": 541,
+    "metodo": "bucle",
+    "repeticion": 2,
+    "iteraciones": 1000,
+    "tiempo_total_s": 0.04964649979956448
+  },
+  {
+    "n": 541,
+    "metodo": "bucle",
+    "repeticion": 3,
+    "iteraciones": 1000,
+    "tiempo_total_s": 0.04969720006920397
+  },
+  {
+    "n": 541,
+    "metodo": "pandas",
+    "repeticion": 3,
+    "iteraciones": 1000,
+    "tiempo_total_s": 0.1836822999175638
+  },
+  {
+    "n": 541,
+    "metodo": "bucle",
+    "repeticion": 1,
+    "pico_rastreado_bytes": 2416
+  },
+  {
+    "n": 541,
+    "metodo": "bucle",
+    "repeticion": 2,
+    "pico_rastreado_bytes": 2416
+  },
+  {
+    "n": 541,
+    "metodo": "bucle",
+    "repeticion": 3,
+    "pico_rastreado_bytes": 2416
+  },
+  {
+    "n": 541,
+    "metodo": "pandas",
+    "repeticion": 1,
+    "pico_rastreado_bytes": 7866
+  },
+  {
+    "n": 541,
+    "metodo": "pandas",
+    "repeticion": 2,
+    "pico_rastreado_bytes": 7817
+  },
+  {
+    "n": 541,
+    "metodo": "pandas",
+    "repeticion": 3,
+    "pico_rastreado_bytes": 7866
+  },
+  {
+    "n": 1000,
+    "metodo": "bucle",
+    "repeticion": 1,
+    "iteraciones": 1000,
+    "tiempo_total_s": 0.09457450010813773
+  },
+  {
+    "n": 1000,
+    "metodo": "pandas",
+    "repeticion": 1,
+    "iteraciones": 1000,
+    "tiempo_total_s": 0.17644100007601082
+  },
+  {
+    "n": 1000,
+    "metodo": "pandas",
+    "repeticion": 2,
+    "iteraciones": 1000,
+    "tiempo_total_s": 0.17329529998824
+  },
+  {
+    "n": 1000,
+    "metodo": "bucle",
+    "repeticion": 2,
+    "iteraciones": 1000,
+    "tiempo_total_s": 0.09496510005556047
+  },
+  {
+    "n": 1000,
+    "metodo": "bucle",
+    "repeticion": 3,
+    "iteraciones": 1000,
+    "tiempo_total_s": 0.09715840010903776
+  },
+  {
+    "n": 1000,
+    "metodo": "pandas",
+    "repeticion": 3,
+    "iteraciones": 1000,
+    "tiempo_total_s": 0.18009959999471903
+  },
+  {
+    "n": 1000,
+    "metodo": "bucle",
+    "repeticion": 1,
+    "pico_rastreado_bytes": 4200
+  },
+  {
+    "n": 1000,
+    "metodo": "bucle",
+    "repeticion": 2,
+    "pico_rastreado_bytes": 4200
+  },
+  {
+    "n": 1000,
+    "metodo": "bucle",
+    "repeticion": 3,
+    "pico_rastreado_bytes": 4200
+  },
+  {
+    "n": 1000,
+    "metodo": "pandas",
+    "repeticion": 1,
+    "pico_rastreado_bytes": 10869
+  },
+  {
+    "n": 1000,
+    "metodo": "pandas",
+    "repeticion": 2,
+    "pico_rastreado_bytes": 10869
+  },
+  {
+    "n": 1000,
+    "metodo": "pandas",
+    "repeticion": 3,
+    "pico_rastreado_bytes": 10869
+  },
+  {
+    "n": 2000,
+    "metodo": "bucle",
+    "repeticion": 1,
+    "iteraciones": 1000,
+    "tiempo_total_s": 0.18899709987454116
+  },
+  {
+    "n": 2000,
+    "metodo": "pandas",
+    "repeticion": 1,
+    "iteraciones": 1000,
+    "tiempo_total_s": 0.18168919999152422
+  },
+  {
+    "n": 2000,
+    "metodo": "pandas",
+    "repeticion": 2,
+    "iteraciones": 1000,
+    "tiempo_total_s": 0.17734179995022714
+  },
+  {
+    "n": 2000,
+    "metodo": "bucle",
+    "repeticion": 2,
+    "iteraciones": 1000,
+    "tiempo_total_s": 0.18867880012840033
+  },
+  {
+    "n": 2000,
+    "metodo": "bucle",
+    "repeticion": 3,
+    "iteraciones": 1000,
+    "tiempo_total_s": 0.18863829993642867
+  },
+  {
+    "n": 2000,
+    "metodo": "pandas",
+    "repeticion": 3,
+    "iteraciones": 1000,
+    "tiempo_total_s": 0.17683749995194376
+  },
+  {
+    "n": 2000,
+    "metodo": "bucle",
+    "repeticion": 1,
+    "pico_rastreado_bytes": 7816
+  },
+  {
+    "n": 2000,
+    "metodo": "bucle",
+    "repeticion": 2,
+    "pico_rastreado_bytes": 7816
+  },
+  {
+    "n": 2000,
+    "metodo": "bucle",
+    "repeticion": 3,
+    "pico_rastreado_bytes": 7816
+  },
+  {
+    "n": 2000,
+    "metodo": "pandas",
+    "repeticion": 1,
+    "pico_rastreado_bytes": 17437
+  },
+  {
+    "n": 2000,
+    "metodo": "pandas",
+    "repeticion": 2,
+    "pico_rastreado_bytes": 17437
+  },
+  {
+    "n": 2000,
+    "metodo": "pandas",
+    "repeticion": 3,
+    "pico_rastreado_bytes": 17437
+  },
+  {
+    "n": 5000,
+    "metodo": "bucle",
+    "repeticion": 1,
+    "iteraciones": 1000,
+    "tiempo_total_s": 0.48016560007818043
+  },
+  {
+    "n": 5000,
+    "metodo": "pandas",
+    "repeticion": 1,
+    "iteraciones": 1000,
+    "tiempo_total_s": 0.19341840012930334
+  },
+  {
+    "n": 5000,
+    "metodo": "pandas",
+    "repeticion": 2,
+    "iteraciones": 1000,
+    "tiempo_total_s": 0.1877138998825103
+  },
+  {
+    "n": 5000,
+    "metodo": "bucle",
+    "repeticion": 2,
+    "iteraciones": 1000,
+    "tiempo_total_s": 0.4764221999794245
+  },
+  {
+    "n": 5000,
+    "metodo": "bucle",
+    "repeticion": 3,
+    "iteraciones": 1000,
+    "tiempo_total_s": 0.5086395000107586
+  },
+  {
+    "n": 5000,
+    "metodo": "pandas",
+    "repeticion": 3,
+    "iteraciones": 1000,
+    "tiempo_total_s": 0.19047260005027056
+  },
+  {
+    "n": 5000,
+    "metodo": "bucle",
+    "repeticion": 1,
+    "pico_rastreado_bytes": 18832
+  },
+  {
+    "n": 5000,
+    "metodo": "bucle",
+    "repeticion": 2,
+    "pico_rastreado_bytes": 18832
+  },
+  {
+    "n": 5000,
+    "metodo": "bucle",
+    "repeticion": 3,
+    "pico_rastreado_bytes": 18832
+  },
+  {
+    "n": 5000,
+    "metodo": "pandas",
+    "repeticion": 1,
+    "pico_rastreado_bytes": 36737
+  },
+  {
+    "n": 5000,
+    "metodo": "pandas",
+    "repeticion": 2,
+    "pico_rastreado_bytes": 36737
+  },
+  {
+    "n": 5000,
+    "metodo": "pandas",
+    "repeticion": 3,
+    "pico_rastreado_bytes": 36737
+  },
+  {
+    "n": 10000,
+    "metodo": "bucle",
+    "repeticion": 1,
+    "iteraciones": 1000,
+    "tiempo_total_s": 0.9610810000449419
+  },
+  {
+    "n": 10000,
+    "metodo": "pandas",
+    "repeticion": 1,
+    "iteraciones": 1000,
+    "tiempo_total_s": 0.20852979994378984
+  },
+  {
+    "n": 10000,
+    "metodo": "pandas",
+    "repeticion": 2,
+    "iteraciones": 1000,
+    "tiempo_total_s": 0.20545210014097393
+  },
+  {
+    "n": 10000,
+    "metodo": "bucle",
+    "repeticion": 2,
+    "iteraciones": 1000,
+    "tiempo_total_s": 0.9566112998872995
+  },
+  {
+    "n": 10000,
+    "metodo": "bucle",
+    "repeticion": 3,
+    "iteraciones": 1000,
+    "tiempo_total_s": 0.9734107998665422
+  },
+  {
+    "n": 10000,
+    "metodo": "pandas",
+    "repeticion": 3,
+    "iteraciones": 1000,
+    "tiempo_total_s": 0.23123070015572011
+  },
+  {
+    "n": 10000,
+    "metodo": "bucle",
+    "repeticion": 1,
+    "pico_rastreado_bytes": 37608
+  },
+  {
+    "n": 10000,
+    "metodo": "bucle",
+    "repeticion": 2,
+    "pico_rastreado_bytes": 37608
+  },
+  {
+    "n": 10000,
+    "metodo": "bucle",
+    "repeticion": 3,
+    "pico_rastreado_bytes": 37608
+  },
+  {
+    "n": 10000,
+    "metodo": "pandas",
+    "repeticion": 1,
+    "pico_rastreado_bytes": 68857
+  },
+  {
+    "n": 10000,
+    "metodo": "pandas",
+    "repeticion": 2,
+    "pico_rastreado_bytes": 68857
+  },
+  {
+    "n": 10000,
+    "metodo": "pandas",
+    "repeticion": 3,
+    "pico_rastreado_bytes": 68857
+  },
+  {
+    "n": 20000,
+    "metodo": "bucle",
+    "repeticion": 1,
+    "iteraciones": 1000,
+    "tiempo_total_s": 1.9389635999687016
+  },
+  {
+    "n": 20000,
+    "metodo": "pandas",
+    "repeticion": 1,
+    "iteraciones": 1000,
+    "tiempo_total_s": 0.24890580005012453
+  },
+  {
+    "n": 20000,
+    "metodo": "pandas",
+    "repeticion": 2,
+    "iteraciones": 1000,
+    "tiempo_total_s": 0.24637329997494817
+  },
+  {
+    "n": 20000,
+    "metodo": "bucle",
+    "repeticion": 2,
+    "iteraciones": 1000,
+    "tiempo_total_s": 1.9239610000513494
+  },
+  {
+    "n": 20000,
+    "metodo": "bucle",
+    "repeticion": 3,
+    "iteraciones": 1000,
+    "tiempo_total_s": 1.9436122002080083
+  },
+  {
+    "n": 20000,
+    "metodo": "pandas",
+    "repeticion": 3,
+    "iteraciones": 1000,
+    "tiempo_total_s": 0.24801020021550357
+  },
+  {
+    "n": 20000,
+    "metodo": "bucle",
+    "repeticion": 1,
+    "pico_rastreado_bytes": 72760
+  },
+  {
+    "n": 20000,
+    "metodo": "bucle",
+    "repeticion": 2,
+    "pico_rastreado_bytes": 72760
+  },
+  {
+    "n": 20000,
+    "metodo": "bucle",
+    "repeticion": 3,
+    "pico_rastreado_bytes": 72760
+  },
+  {
+    "n": 20000,
+    "metodo": "pandas",
+    "repeticion": 1,
+    "pico_rastreado_bytes": 132713
+  },
+  {
+    "n": 20000,
+    "metodo": "pandas",
+    "repeticion": 2,
+    "pico_rastreado_bytes": 132713
+  },
+  {
+    "n": 20000,
+    "metodo": "pandas",
+    "repeticion": 3,
+    "pico_rastreado_bytes": 132713
+  },
+  {
+    "n": 50000,
+    "metodo": "bucle",
+    "repeticion": 1,
+    "iteraciones": 1000,
+    "tiempo_total_s": 4.79697829997167
+  },
+  {
+    "n": 50000,
+    "metodo": "pandas",
+    "repeticion": 1,
+    "iteraciones": 1000,
+    "tiempo_total_s": 0.3501999999862164
+  },
+  {
+    "n": 50000,
+    "metodo": "pandas",
+    "repeticion": 2,
+    "iteraciones": 1000,
+    "tiempo_total_s": 0.3467899998649955
+  },
+  {
+    "n": 50000,
+    "metodo": "bucle",
+    "repeticion": 2,
+    "iteraciones": 1000,
+    "tiempo_total_s": 4.856931900139898
+  },
+  {
+    "n": 50000,
+    "metodo": "bucle",
+    "repeticion": 3,
+    "iteraciones": 1000,
+    "tiempo_total_s": 4.877044199965894
+  },
+  {
+    "n": 50000,
+    "metodo": "pandas",
+    "repeticion": 3,
+    "iteraciones": 1000,
+    "tiempo_total_s": 0.3533101000357419
+  },
+  {
+    "n": 50000,
+    "metodo": "bucle",
+    "repeticion": 1,
+    "pico_rastreado_bytes": 182976
+  },
+  {
+    "n": 50000,
+    "metodo": "bucle",
+    "repeticion": 2,
+    "pico_rastreado_bytes": 182976
+  },
+  {
+    "n": 50000,
+    "metodo": "bucle",
+    "repeticion": 3,
+    "pico_rastreado_bytes": 182976
+  },
+  {
+    "n": 50000,
+    "metodo": "pandas",
+    "repeticion": 1,
+    "pico_rastreado_bytes": 325289
+  },
+  {
+    "n": 50000,
+    "metodo": "pandas",
+    "repeticion": 2,
+    "pico_rastreado_bytes": 325289
+  },
+  {
+    "n": 50000,
+    "metodo": "pandas",
+    "repeticion": 3,
+    "pico_rastreado_bytes": 325289
+  }
+]

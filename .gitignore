@@ -40,3 +40,8 @@ F2/docs/conciliacion_firmas.csv
 F2/docs/cruce_exportacion.csv
 F2/docs/excepciones_detalle.csv
 .jupyter/
+
+# Entorno opcional para reproducir Formativa 3
+.venv-f3/
+# El editable Word se conserva fuera del control de versiones por indicación docente.
+F3/docs/f3_s02_grupo7.docx

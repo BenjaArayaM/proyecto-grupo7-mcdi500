@@ -1,0 +1,33 @@
+{
+  "contexto": "revision_local_del_equipo",
+  "motor": "jupyter",
+  "inicio_utc": "2026-09-28T00:49:56.745577+00:00",
+  "fin_utc": "2026-09-28T00:50:33.271631+00:00",
+  "sistema_ejecutor": "Windows",
+  "python_ejecutor": "3.13.15",
+  "kernel": "grupo7_mcdi500",
+  "entorno_kernel": {
+    "python": "3.13.15",
+    "sistema": "Windows",
+    "paquetes": {
+      "numpy": "2.5.3",
+      "pandas": "3.0.5",
+      "matplotlib": "3.11.1",
+      "nbformat": "5.11.1",
+      "ipykernel": "7.3.0"
+    }
+  },
+  "celdas_codigo": 11,
+  "errores": 0,
+  "proceso_nuevo": true,
+  "sha256_notebook": "27fcf65d8ea9826c10940f5c9e35e06549c015ccd812cf6fd46221ed415fe440",
+  "sha256_fuentes": {
+    "F3/src/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "F3/src/benchmark_iqr.py": "7d9fb7eb61b38a13b94a6add78ead7d59d9911e2cd86608d56eacd5808c2991f",
+    "F3/src/datos_iqr.py": "5ddf1e933d1bf7957e0969ea10482f7a4fffa0357f54850a8bd9f67212cbc87d",
+    "F3/src/funciones_iqr.py": "a95e591dc062606dbe063f21d1715d14e6a36e346a0e88357130f537c1da89f7",
+    "F3/src/preprocesamiento.py": "fc559db9d9c16d4f4df0baa357faebf196099a005d4c6588cb3646fdbc3b1cbe",
+    "F3/tests/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "F3/tests/test_funciones_iqr.py": "a4f395a498e5ee4077ed1d5b7e39f06f78ce3d82c9fb10df1cd54dda9ca2d612"
+  }
+}
