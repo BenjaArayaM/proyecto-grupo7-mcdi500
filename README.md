@@ -518,3 +518,29 @@ en n pequeño. Los tamaños mayores son réplicas de carga, no nuevas observacio
 Las evidencias incluidas en el paquete están rotuladas `validacion_asistida_linux`; cada integrante
 debe generar y revisar su ejecución antes de atribuirse una validación. `.mailmap` unifica la
 presentación de alias verificados con el mismo correo, sin reescribir commits.
+
+
+### Problemas algorítmicos pendientes
+
+La Fase 3 mantiene dos decisiones metodológicas abiertas identificadas durante la
+revisión de la Sumativa 1:
+
+- **Asignación de montos por rubro:** las 1.683 relaciones de rubro representan
+  pertenencia y no una asignación monetaria. Se debe definir y justificar una regla
+  para distribuir los montos de cabecera cuando una orden pertenece a múltiples rubros.
+- **Órdenes no conciliadas:** las tres órdenes identificadas en F2 se mantienen
+  preservadas. F3 debe definir si los agregados las incluyen, las excluyen o presentan
+  ambas versiones, dejando explícita la consecuencia de la decisión.
+
+Estas decisiones no se resuelven mediante eliminación automática de registros.
+
+### Criterios de validación antes de una entrega
+
+Antes de una entrega se debe:
+
+- ejecutar los notebooks completos;
+- verificar que todas las celdas de código tengan ejecución y salida;
+- ejecutar las pruebas automatizadas;
+- verificar las versiones exactas del entorno;
+- compilar el informe LaTeX en las pasadas necesarias para resolver referencias cruzadas;
+- revisar ortografía, nombres, tablas y referencias.
