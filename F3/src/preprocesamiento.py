@@ -71,16 +71,19 @@ def normalizar_rut(serie: pd.Series) -> pd.Series:
 
 
 def marcar_iqr(serie: pd.Series, factor: float = 1.5) -> tuple[pd.Series, dict]:
-    if factor <= 0:
-        raise ValueError("El factor IQR debe ser positivo.")
-    valores = serie.dropna().to_numpy(dtype=float)
-    if len(valores) == 0 or not np.isfinite(valores).all():
-        raise ValueError("IQR requiere al menos un número finito.")
-    q1, q3 = np.percentile(valores, [25, 75], method="linear")
-    inferior, superior = float(q1 - factor * (q3-q1)), float(q3 + factor * (q3-q1))
-    marca = ((serie < inferior) | (serie > superior)).astype("boolean")
+    """Calcula y marca atípicos reutilizando el núcleo IQR de F3."""
+    from funciones_iqr import calcular_limites_iqr
+
+    observados = serie.dropna().astype(float)
+    limites = calcular_limites_iqr(observados, factor)
+
+    marca = (
+        (serie < limites["limite_inferior"])
+        | (serie > limites["limite_superior"])
+    ).astype("boolean")
     marca.loc[serie.isna()] = pd.NA
-    return marca, {"n": len(valores), "q1": float(q1), "q3": float(q3), "limite_inferior": inferior, "limite_superior": superior, "factor": factor}
+
+    return marca, limites
 
 
 def estandarizar(serie: pd.Series) -> tuple[pd.Series, dict]:
