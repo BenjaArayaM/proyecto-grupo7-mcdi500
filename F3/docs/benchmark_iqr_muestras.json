@@ -4,42 +4,42 @@
     "metodo": "bucle",
     "repeticion": 1,
     "iteraciones": 1000,
-    "tiempo_total_s": 0.05062639992684126
+    "tiempo_total_s": 0.049557500053197145
   },
   {
     "n": 541,
     "metodo": "pandas",
     "repeticion": 1,
     "iteraciones": 1000,
-    "tiempo_total_s": 0.18143610004335642
+    "tiempo_total_s": 0.16742810001596808
   },
   {
     "n": 541,
     "metodo": "pandas",
     "repeticion": 2,
     "iteraciones": 1000,
-    "tiempo_total_s": 0.1809839999768883
+    "tiempo_total_s": 0.16975919995456934
   },
   {
     "n": 541,
     "metodo": "bucle",
     "repeticion": 2,
     "iteraciones": 1000,
-    "tiempo_total_s": 0.04964649979956448
+    "tiempo_total_s": 0.04972369992174208
   },
   {
     "n": 541,
     "metodo": "bucle",
     "repeticion": 3,
     "iteraciones": 1000,
-    "tiempo_total_s": 0.04969720006920397
+    "tiempo_total_s": 0.05034169997088611
   },
   {
     "n": 541,
     "metodo": "pandas",
     "repeticion": 3,
     "iteraciones": 1000,
-    "tiempo_total_s": 0.1836822999175638
+    "tiempo_total_s": 0.1694206998217851
   },
   {
     "n": 541,
@@ -69,7 +69,7 @@
     "n": 541,
     "metodo": "pandas",
     "repeticion": 2,
-    "pico_rastreado_bytes": 7817
+    "pico_rastreado_bytes": 7866
   },
   {
     "n": 541,
@@ -82,42 +82,42 @@
     "metodo": "bucle",
     "repeticion": 1,
     "iteraciones": 1000,
-    "tiempo_total_s": 0.09457450010813773
+    "tiempo_total_s": 0.09402690012939274
   },
   {
     "n": 1000,
     "metodo": "pandas",
     "repeticion": 1,
     "iteraciones": 1000,
-    "tiempo_total_s": 0.17644100007601082
+    "tiempo_total_s": 0.17599819996394217
   },
   {
     "n": 1000,
     "metodo": "pandas",
     "repeticion": 2,
     "iteraciones": 1000,
-    "tiempo_total_s": 0.17329529998824
+    "tiempo_total_s": 0.1726035000756383
   },
   {
     "n": 1000,
     "metodo": "bucle",
     "repeticion": 2,
     "iteraciones": 1000,
-    "tiempo_total_s": 0.09496510005556047
+    "tiempo_total_s": 0.094194799894467
   },
   {
     "n": 1000,
     "metodo": "bucle",
     "repeticion": 3,
     "iteraciones": 1000,
-    "tiempo_total_s": 0.09715840010903776
+    "tiempo_total_s": 0.09408660000190139
   },
   {
     "n": 1000,
     "metodo": "pandas",
     "repeticion": 3,
     "iteraciones": 1000,
-    "tiempo_total_s": 0.18009959999471903
+    "tiempo_total_s": 0.1737550999969244
   },
   {
     "n": 1000,
@@ -160,42 +160,42 @@
     "metodo": "bucle",
     "repeticion": 1,
     "iteraciones": 1000,
-    "tiempo_total_s": 0.18899709987454116
+    "tiempo_total_s": 0.1881982998456806
   },
   {
     "n": 2000,
     "metodo": "pandas",
     "repeticion": 1,
     "iteraciones": 1000,
-    "tiempo_total_s": 0.18168919999152422
+    "tiempo_total_s": 0.1764836001675576
   },
   {
     "n": 2000,
     "metodo": "pandas",
     "repeticion": 2,
     "iteraciones": 1000,
-    "tiempo_total_s": 0.17734179995022714
+    "tiempo_total_s": 0.18076299992389977
   },
   {
     "n": 2000,
     "metodo": "bucle",
     "repeticion": 2,
     "iteraciones": 1000,
-    "tiempo_total_s": 0.18867880012840033
+    "tiempo_total_s": 0.19359559984877706
   },
   {
     "n": 2000,
     "metodo": "bucle",
     "repeticion": 3,
     "iteraciones": 1000,
-    "tiempo_total_s": 0.18863829993642867
+    "tiempo_total_s": 0.19066439988091588
   },
   {
     "n": 2000,
     "metodo": "pandas",
     "repeticion": 3,
     "iteraciones": 1000,
-    "tiempo_total_s": 0.17683749995194376
+    "tiempo_total_s": 0.1800176000688225
   },
   {
     "n": 2000,
@@ -238,42 +238,42 @@
     "metodo": "bucle",
     "repeticion": 1,
     "iteraciones": 1000,
-    "tiempo_total_s": 0.48016560007818043
+    "tiempo_total_s": 0.47886370006017387
   },
   {
     "n": 5000,
     "metodo": "pandas",
     "repeticion": 1,
     "iteraciones": 1000,
-    "tiempo_total_s": 0.19341840012930334
+    "tiempo_total_s": 0.1876831001136452
   },
   {
     "n": 5000,
     "metodo": "pandas",
     "repeticion": 2,
     "iteraciones": 1000,
-    "tiempo_total_s": 0.1877138998825103
+    "tiempo_total_s": 0.18670669989660382
   },
   {
     "n": 5000,
     "metodo": "bucle",
     "repeticion": 2,
     "iteraciones": 1000,
-    "tiempo_total_s": 0.4764221999794245
+    "tiempo_total_s": 0.4796146999578923
   },
   {
     "n": 5000,
     "metodo": "bucle",
     "repeticion": 3,
     "iteraciones": 1000,
-    "tiempo_total_s": 0.5086395000107586
+    "tiempo_total_s": 0.4797285001259297
   },
   {
     "n": 5000,
     "metodo": "pandas",
     "repeticion": 3,
     "iteraciones": 1000,
-    "tiempo_total_s": 0.19047260005027056
+    "tiempo_total_s": 0.1865021998528391
   },
   {
     "n": 5000,
@@ -316,42 +316,42 @@
     "metodo": "bucle",
     "repeticion": 1,
     "iteraciones": 1000,
-    "tiempo_total_s": 0.9610810000449419
+    "tiempo_total_s": 0.9697141998913139
   },
   {
     "n": 10000,
     "metodo": "pandas",
     "repeticion": 1,
     "iteraciones": 1000,
-    "tiempo_total_s": 0.20852979994378984
+    "tiempo_total_s": 0.2044653999619186
   },
   {
     "n": 10000,
     "metodo": "pandas",
     "repeticion": 2,
     "iteraciones": 1000,
-    "tiempo_total_s": 0.20545210014097393
+    "tiempo_total_s": 0.2024151999503374
   },
   {
     "n": 10000,
     "metodo": "bucle",
     "repeticion": 2,
     "iteraciones": 1000,
-    "tiempo_total_s": 0.9566112998872995
+    "tiempo_total_s": 0.957098500104621
   },
   {
     "n": 10000,
     "metodo": "bucle",
     "repeticion": 3,
     "iteraciones": 1000,
-    "tiempo_total_s": 0.9734107998665422
+    "tiempo_total_s": 0.9523654000367969
   },
   {
     "n": 10000,
     "metodo": "pandas",
     "repeticion": 3,
     "iteraciones": 1000,
-    "tiempo_total_s": 0.23123070015572011
+    "tiempo_total_s": 0.20479499991051853
   },
   {
     "n": 10000,
@@ -394,42 +394,42 @@
     "metodo": "bucle",
     "repeticion": 1,
     "iteraciones": 1000,
-    "tiempo_total_s": 1.9389635999687016
+    "tiempo_total_s": 1.9129697000607848
   },
   {
     "n": 20000,
     "metodo": "pandas",
     "repeticion": 1,
     "iteraciones": 1000,
-    "tiempo_total_s": 0.24890580005012453
+    "tiempo_total_s": 0.2416815001051873
   },
   {
     "n": 20000,
     "metodo": "pandas",
     "repeticion": 2,
     "iteraciones": 1000,
-    "tiempo_total_s": 0.24637329997494817
+    "tiempo_total_s": 0.23983630002476275
   },
   {
     "n": 20000,
     "metodo": "bucle",
     "repeticion": 2,
     "iteraciones": 1000,
-    "tiempo_total_s": 1.9239610000513494
+    "tiempo_total_s": 1.9121020999737084
   },
   {
     "n": 20000,
     "metodo": "bucle",
     "repeticion": 3,
     "iteraciones": 1000,
-    "tiempo_total_s": 1.9436122002080083
+    "tiempo_total_s": 1.9245104000438005
   },
   {
     "n": 20000,
     "metodo": "pandas",
     "repeticion": 3,
     "iteraciones": 1000,
-    "tiempo_total_s": 0.24801020021550357
+    "tiempo_total_s": 0.239411799935624
   },
   {
     "n": 20000,
@@ -472,42 +472,42 @@
     "metodo": "bucle",
     "repeticion": 1,
     "iteraciones": 1000,
-    "tiempo_total_s": 4.79697829997167
+    "tiempo_total_s": 4.776558900019154
   },
   {
     "n": 50000,
     "metodo": "pandas",
     "repeticion": 1,
     "iteraciones": 1000,
-    "tiempo_total_s": 0.3501999999862164
+    "tiempo_total_s": 0.34480510000139475
   },
   {
     "n": 50000,
     "metodo": "pandas",
     "repeticion": 2,
     "iteraciones": 1000,
-    "tiempo_total_s": 0.3467899998649955
+    "tiempo_total_s": 0.3432436999864876
   },
   {
     "n": 50000,
     "metodo": "bucle",
     "repeticion": 2,
     "iteraciones": 1000,
-    "tiempo_total_s": 4.856931900139898
+    "tiempo_total_s": 4.80061070015654
   },
   {
     "n": 50000,
     "metodo": "bucle",
     "repeticion": 3,
     "iteraciones": 1000,
-    "tiempo_total_s": 4.877044199965894
+    "tiempo_total_s": 4.8112365999259055
   },
   {
     "n": 50000,
     "metodo": "pandas",
     "repeticion": 3,
     "iteraciones": 1000,
-    "tiempo_total_s": 0.3533101000357419
+    "tiempo_total_s": 0.3741665999405086
   },
   {
     "n": 50000,
@@ -531,7 +531,7 @@
     "n": 50000,
     "metodo": "pandas",
     "repeticion": 1,
-    "pico_rastreado_bytes": 325289
+    "pico_rastreado_bytes": 325240
   },
   {
     "n": 50000,

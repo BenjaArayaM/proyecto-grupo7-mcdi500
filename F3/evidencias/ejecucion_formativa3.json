@@ -1,8 +1,8 @@
 {
   "contexto": "revision_local_del_equipo",
   "motor": "jupyter",
-  "inicio_utc": "2026-09-28T00:49:56.745577+00:00",
-  "fin_utc": "2026-09-28T00:50:33.271631+00:00",
+  "inicio_utc": "2026-09-28T01:47:41.640277+00:00",
+  "fin_utc": "2026-09-28T01:48:17.745118+00:00",
   "sistema_ejecutor": "Windows",
   "python_ejecutor": "3.13.15",
   "kernel": "grupo7_mcdi500",
@@ -20,7 +20,7 @@
   "celdas_codigo": 11,
   "errores": 0,
   "proceso_nuevo": true,
-  "sha256_notebook": "27fcf65d8ea9826c10940f5c9e35e06549c015ccd812cf6fd46221ed415fe440",
+  "sha256_notebook": "f25f2217244cccf700285bf24308123e7aa68e6f72e583e820c09335bdd93c56",
   "sha256_fuentes": {
     "F3/src/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
     "F3/src/benchmark_iqr.py": "7d9fb7eb61b38a13b94a6add78ead7d59d9911e2cd86608d56eacd5808c2991f",

@@ -24,6 +24,6 @@ test_un_valor (test_funciones_iqr.TestLimites.test_un_valor) ... ok
 test_vacia_no_estima_cuartiles (test_funciones_iqr.TestLimites.test_vacia_no_estima_cuartiles) ... ok
 
 ----------------------------------------------------------------------
-Ran 24 tests in 0.477s
+Ran 24 tests in 0.466s
 
 OK

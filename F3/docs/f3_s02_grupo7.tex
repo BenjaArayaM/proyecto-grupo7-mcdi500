@@ -71,12 +71,20 @@ con los valores estrictamente fuera del intervalo, en su orden original y con su
 El uso de estructuras tabulares se apoya en el enfoque de análisis de datos presentado por
 McKinney (2010); la elección de la estrategia se decide aquí mediante mediciones.
 
-La entrega anterior dejaba la carga, la validación y los cuartiles en el notebook. Ahora se
-separan en funciones reutilizables: \texttt{cargar\_ordenes} verifica el contrato de entrada;
-\texttt{calcular\_limites\_iqr} calcula Q1, Q3, IQR y límites una sola vez; y
-\texttt{ejecutar\_benchmark} instrumenta las dos estrategias. El notebook importa esas funciones,
-coordina el flujo y explica los resultados. Esta separación permite probar cada responsabilidad
-sin depender de variables creadas manualmente en una sesión anterior.
+La entrega anterior dejaba parte de la carga, validación y cálculo en el notebook. En esta
+revisión se separan las responsabilidades en módulos reutilizables y se incorpora una arquitectura
+orientada a objetos para el pipeline de procesamiento. Las funciones estadísticas del núcleo IQR
+se mantienen sin estado, ya que permiten comparar directamente las estrategias de filtrado y
+comparten el cálculo de límites mediante \texttt{calcular\_limites\_iqr}.
+
+El procesamiento general se organiza mediante \texttt{PipelineCompraAgil}, que coordina la carga,
+validación, transformación, generación de métricas y exportación. \texttt{TransformadorDatos}
+mantiene la configuración de transformación; \texttt{GeneradorMetricas} concentra el cálculo
+de métricas; y \texttt{ExportadorResultados} separa la generación de archivos de las demás
+responsabilidades. El tratamiento de faltantes utiliza la interfaz
+\texttt{EstrategiaFaltantes} y sus implementaciones concretas, aplicando herencia y polimorfismo.
+Esta separación permite probar responsabilidades individuales y evita que la lógica de
+procesamiento quede acoplada al notebook.
 
 \begin{table}[H]\centering
 \caption{Componentes implementados y evidencia verificable}
@@ -206,8 +214,10 @@ afirma haber aislado cada operación interna mediante un perfilador.
 El cambio de ventaja observado se ubica \IntervaloCruce. El muestreo permite acotar ese cambio,
 pero no establece el primer tamaño entero donde ocurre ni garantiza un umbral universal.
 En tamaños cercanos deben revisarse la variación entre repeticiones y el entorno de ejecución.
-El grupo deberá confirmar su elección con la medición local, conservando las dos estrategias
-para que la decisión pueda revisarse sin reescribir la lógica.
+Para el tamaño nativo medido, se mantiene el bucle como alternativa de referencia, conservando ambas estrategias
+para que la decisión pueda revisarse sin reescribir la lógica. Esta cautela es consistente con
+evaluaciones recientes de bibliotecas de DataFrame, donde el rendimiento relativo varía según
+las características de los datos y la etapa de preparación analizada (Mozzillo et al., 2025).
 
 Los dos filtros tienen tiempo O(n). El bucle requiere O(k) de memoria para su lista de salida;
 pandas añade máscaras y selección O(n), además de la salida O(k), donde k es la cantidad de
@@ -236,10 +246,16 @@ implementación del criterio existe para comparar estrategias y no para redefini
 Si en el futuro se extrae una utilidad compartida entre fases, esa refactorización requerirá
 pruebas de regresión de ambas para evitar cambios retrospectivos inadvertidos.
 
-Las funciones no necesitan mantener estado entre ejecuciones, por lo que se conserva el
-enfoque funcional admitido en esta formativa. La organización facilita una evolución posterior
-a POO cuando la guía correspondiente exija o justifique objetos, sin crear aquí una jerarquía
-artificial. Esta distinción respeta el alcance del avance y el material del curso
+Las funciones estadísticas del núcleo IQR no necesitan mantener estado entre ejecuciones y,
+por ello, se conservan como funciones sin estado. Esta decisión es diferente del pipeline de
+procesamiento, donde sí resulta útil mantener configuración y responsabilidades explícitas
+mediante objetos.
+
+La arquitectura POO permite separar responsabilidades y aplicar composición, herencia y
+polimorfismo donde aportan claridad. En particular, las estrategias de faltantes comparten una
+interfaz común y pueden ser sustituidas sin modificar el flujo que las utiliza. Esta combinación
+evita introducir una jerarquía artificial en el núcleo estadístico, pero permite estructurar el
+pipeline de procesamiento de acuerdo con las responsabilidades reales del proyecto
 (Universidad Andrés Bello, 2026a, 2026b).
 
 \section{Documentación de arquitectura}
@@ -247,26 +263,42 @@ La arquitectura separa preparación de datos, cálculo estadístico, instrumenta
 de resultados. Esta decisión evita que cambiar el protocolo de tiempos cambie el criterio de
 atipicidad, y que modificar una visualización obligue a tocar la limpieza de F2.
 
-Se descarta concentrar todo en el notebook porque impediría probar de forma aislada la lectura
-y los contratos. También se descarta copiar F2 dentro de F3: crearía dos versiones de las
-reglas monetarias y de faltantes. Conservar módulos por responsabilidad y un contrato explícito
-reduce ese riesgo y permite revisar la continuidad mediante pruebas.
+La arquitectura orientada a objetos se concentra en el pipeline de procesamiento. La clase
+\texttt{PipelineCompraAgil} coordina el flujo completo; \texttt{TransformadorDatos} encapsula
+la preparación y construcción de variables; \texttt{GeneradorMetricas} concentra la generación
+de métricas; y \texttt{ExportadorResultados} mantiene separada la escritura de resultados.
+
+El tratamiento de faltantes utiliza el patrón Strategy mediante la interfaz
+\texttt{EstrategiaFaltantes}. Las implementaciones
+\texttt{EstrategiaEliminar\allowbreak Orden}, \texttt{EstrategiaImputar\allowbreak Moda} y
+\texttt{EstrategiaConservar\allowbreak Marca} comparten el mismo contrato,
+permitiendo cambiar la política sin modificar el componente que la utiliza. La herencia define
+la interfaz común y el polimorfismo permite evaluar las distintas estrategias de forma uniforme.
+
+Se descarta concentrar todo en el notebook porque impediría probar de forma aislada la lectura,
+los contratos y las responsabilidades del pipeline. También se descarta copiar F2 dentro de F3:
+crearía dos versiones de las reglas monetarias y de faltantes. F2 permanece como productor de
+datos procesados y F3 como consumidor y núcleo experimental, con el archivo procesado como
+interfaz entre ambas fases.
 
 La salida de los filtros permanece como lista porque esa era la interfaz evaluada. Conserva
 valores, orden y multiplicidad, pero no el índice. Para sostener trazabilidad por orden se añade
 un contraste específico de máscaras y códigos, en vez de atribuir a la lista información que
-no contiene. El detalle de alternativas y consecuencias está en \path{F3/docs/arquitectura.md}.
+no contiene. El detalle de responsabilidades, alternativas y consecuencias está en
+\path{F3/docs/arquitectura.md}.
 
-La evolución propuesta es gradual: primero validar contratos y resultados; después elegir una
-estrategia según las mediciones; finalmente incorporar objetos o una utilidad común si los
-requisitos posteriores lo demandan. Los datos sintéticos de rendimiento nunca se reutilizarán
+La evolución conserva el núcleo estadístico IQR como funciones sin estado, mientras que el
+pipeline de procesamiento utiliza objetos donde la configuración, la composición y las
+responsabilidades justifican su uso. Los datos sintéticos de rendimiento nunca se reutilizarán
 como nuevas observaciones de entrenamiento.
 
 \section{Notebooks ejecutables}
-El notebook corregido contiene nueve celdas de código, con narrativa para cada etapa y salidas
-conservadas. El ejecutor inicia un proceso nuevo, verifica contadores consecutivos, detiene la
-ejecución ante errores y registra los hash del notebook, de los módulos y de las pruebas.
-La etiqueta de contexto y las versiones proceden de la ejecución real.
+El notebook corregido contiene once celdas de código, con narrativa para cada etapa y salidas
+conservadas. Además de la experimentación IQR, incorpora evidencia de la arquitectura POO,
+polimorfismo de las estrategias de faltantes e integración entre F2 y F3. El ejecutor inicia un
+proceso nuevo, verifica contadores consecutivos, detiene la ejecución ante errores y registra
+los hash del notebook, de los módulos y de las pruebas. La etiqueta de contexto y las versiones
+proceden de la ejecución registrada.
 
 Se conserva la referencia al foro técnico incluida en la entrega: las decisiones de diseño se
 fundamentan en la naturaleza del problema y en evidencia de eficiencia, no en asumir que una
@@ -280,27 +312,27 @@ deban permanecer consistentes. El informe se genera desde las métricas, evitand
 manualmente los resultados del benchmark.
 
 \section{Repositorio GitHub}
-La revisión se preparó en una copia independiente del estado \texttt{c02beb5} de \texttt{main}.
-No se crearon ramas, commits ni pull requests durante la preparación. El grupo debe revisar,
-aplicar, ejecutar y publicar los cambios desde su equipo. El historial de publicación solo
-existirá cuando esos pasos se hayan realizado efectivamente.
+Las correcciones de F3 fueron incorporadas progresivamente sobre la rama \texttt{main},
+manteniendo commits específicos para documentar los cambios realizados. Entre las modificaciones
+se incluyen la actualización del README, la documentación de la arquitectura POO, la corrección
+de referencias históricas y la trazabilidad de las correcciones frente a la retroalimentación.
 
-Se incorporan pruebas reales en la carpeta antes vacía, documentación de decisiones y un README
-que identifica el procedimiento de reproducción. Se prepara un archivo \texttt{.mailmap} para
-los dos pares de alias comprobados con el mismo correo. Esto normaliza la presentación de
-autores en herramientas compatibles sin reescribir commits ni cambiar sus fechas.
+La arquitectura se documenta en \path{F3/docs/arquitectura.md} y las pruebas y ejecuciones quedan
+respaldadas mediante los archivos de \path{F3/evidencias}. El README describe el estado de las
+fases, la ejecución reproducible y la relación entre F2 y F3.
 
-Para atender la observación sobre documentos duplicados, el tutorial indica retirar el Word
-del índice de Git mediante \texttt{git rm --cached}, conservándolo localmente. El PDF es el
-documento de entrega. La fuente LaTeX se conserva como código de generación reproducible;
-no es una segunda versión editorial independiente del informe.
+La revisión incorpora un archivo \texttt{.mailmap} para los pares de alias comprobados con el
+mismo correo, con el objetivo de mejorar la presentación de autoría histórica sin modificar los
+commits originales.
 
-Además, se reparan por separado dos archivos de F2 que contenían marcas de conflicto:
-el notebook y el JSON de entorno. Se recupera la variante histórica \texttt{Updated upstream},
-sin cambiar el código de preparación ni atribuir esa evidencia histórica a una ejecución nueva.
-La copia original se respalda antes de aplicar el paquete. Las 18 pruebas de F2 pasaron en la
-comprobación asistida; ello no sustituye la revisión local del equipo.
+También se repararon por separado dos archivos de F2 que contenían marcas de conflicto: el
+notebook y el JSON de entorno. La reparación se mantuvo independiente de las modificaciones del
+código de preprocesamiento F2. Se conserva la variante histórica correspondiente al registro
+existente y no se presenta esa reparación como una nueva ejecución local de F2.
 
+La fuente LaTeX se conserva como código de generación reproducible. El estado final del
+repositorio debe verificarse mediante el historial de commits, la ejecución de las pruebas y
+la compilación del informe antes de una entrega definitiva.
 \clearpage
 \section{Referencias}
 \begin{list}{}{\setlength{\leftmargin}{0.65cm}\setlength{\itemindent}{-0.65cm}\setlength{\itemsep}{9pt}}
@@ -308,6 +340,10 @@ comprobación asistida; ello no sustituye la revisión local del equipo.
 \item McKinney, W. (2010). Data structures for statistical computing in Python. En
 \textit{Proceedings of the 9th Python in Science Conference} (pp. 56–61).
 \url{https://doi.org/10.25080/Majora-92bf1922-00a}
+\item Mozzillo, A., Zecchini, L., Gagliardelli, L., Aslam, A., Bergamaschi, S. y Simonini, G. (2025).
+\textit{Evaluation of Dataframe Libraries for Data Preparation on a Single Machine}. En
+\textit{Proceedings of the 28th International Conference on Extending Database Technology},
+pp. 337–349. \url{https://doi.org/10.48786/EDBT.2025.27}
 \item pandas development team. (2026). \textit{pandas.Series.quantile}. pandas documentation.
 \url{https://pandas.pydata.org/docs/reference/api/pandas.Series.quantile.html}
 \item Python Software Foundation. (2026a). \textit{time — Time access and conversions}.

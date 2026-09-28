@@ -24,15 +24,15 @@ al registro asistido. Los cambios de implementación posteriores requieren volve
 
 Responsable: Benjamín Araya.
 
-Se ejecutó F3 en Windows con Python 3.12.0, pandas 3.0.5 y NumPy 2.5.3.
+Se ejecutó F3 en Windows con Python 3.13.15, pandas 3.0.5 y NumPy 2.5.3.
 Se verificaron 541 órdenes, 61 extremos y 24 pruebas satisfactorias.
 
-Para 541 valores, el tiempo mínimo por llamada fue de 35,14 µs con bucle
-y 140,72 µs con pandas. La mediana del pico de memoria rastreada fue de
-2,36 KiB y 7,62 KiB, respectivamente.
+Para 541 valores, el tiempo mínimo por llamada fue de 49,56 µs con bucle
+y 167,43 µs con pandas. La mediana del pico de memoria rastreada fue de
+2,36 KiB y 7,68 KiB, respectivamente.
 
-El bucle fue más rápido con 2.000 valores y pandas con 5.000.
-El cambio observado queda acotado entre esos tamaños; no representa
+Con 1.000 valores, el bucle mantuvo menor tiempo que pandas. Con 2.000 valores, pandas pasó a registrar un menor tiempo mínimo por llamada.
+El cambio observado queda acotado entre 1.000 y 2.000 valores; no representa
 un umbral exacto ni universal. Los tamaños mayores provienen de
 réplicas para medir carga, no de nuevas órdenes de compra.
 
