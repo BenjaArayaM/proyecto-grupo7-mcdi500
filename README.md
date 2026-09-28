@@ -449,6 +449,36 @@ Los principales archivos incorporados en esta fase son:
 
 La organización de esta fase separa la ejecución y documentación del análisis en el notebook de las funciones reutilizables almacenadas en `F3/src`.
 
+### Integración de arquitectura POO
+
+La revisión de F3 incorpora una arquitectura modular basada en programación orientada a objetos
+para organizar el flujo de preparación y generación de resultados. La implementación se encuentra
+en `F3/src/preprocesamiento.py` y mantiene separadas las responsabilidades principales:
+
+- `PipelineCompraAgil`: coordina la ejecución completa del flujo.
+- `TransformadorDatos`: encapsula las transformaciones y construcción de variables.
+- `GeneradorMetricas`: concentra el cálculo de métricas y resultados de diagnóstico.
+- `ExportadorResultados`: gestiona la generación de resultados derivados.
+- `EstrategiaFaltantes`: define la interfaz para el tratamiento de valores faltantes.
+- `EstrategiaEliminarOrden`, `EstrategiaImputarModa` y `EstrategiaConservarMarca`: implementan
+  estrategias concretas mediante herencia y polimorfismo.
+
+El patrón Strategy permite comparar distintas políticas de tratamiento de faltantes sin modificar
+el flujo principal. La arquitectura mantiene además el núcleo IQR reutilizable de F3 separado de
+la experimentación de eficiencia: `marcar_iqr()` reutiliza `calcular_limites_iqr()`, mientras que
+las implementaciones por bucle y vectorización se mantienen como estrategias experimentales con
+un contrato equivalente.
+
+La integración conserva la separación entre fases: F2 continúa siendo el productor de los datos
+procesados y F3 consume esos resultados para el análisis algorítmico y la experimentación. La
+ejecución integrada verificó 541 órdenes procesadas, 1.683 relaciones de rubros, 541 variables
+generadas y 32 métricas.
+
+La evidencia de herencia y polimorfismo se encuentra en `F3/notebooks/F3_Formativa_Eficiencia_IQR.ipynb`,
+mientras que las pruebas automatizadas de las funciones IQR se encuentran en
+`F3/tests/test_funciones_iqr.py`.
+
+
 
 ## Revisión de Formativa 3 según retroalimentación docente
 
