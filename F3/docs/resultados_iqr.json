@@ -1,8 +1,8 @@
 {
-  "contexto": "revision_local_benjamin_windows",
-  "fecha_utc": "2026-09-27T13:35:43.385570+00:00",
+  "contexto": "revision_local_del_equipo",
+  "fecha_utc": "2026-09-28T00:50:32.912874+00:00",
   "entorno": {
-    "python": "3.12.0",
+    "python": "3.13.15",
     "sistema": "Windows",
     "paquetes": {
       "numpy": "2.5.3",
@@ -40,7 +40,7 @@
     "errores": 0,
     "omitidas": 0,
     "exitosas": true,
-    "contexto": "revision_local_benjamin_windows"
+    "contexto": "revision_local_del_equipo"
   },
   "benchmark": [
     {
@@ -50,10 +50,10 @@
       "entrada_replicada": false,
       "iteraciones": 1000,
       "repeticiones": 3,
-      "min_total_s": 0.03513620000012452,
-      "min_por_llamada_us": 35.13620000012452,
-      "mediana_por_llamada_us": 35.16220000165049,
-      "max_por_llamada_us": 35.8090000008815,
+      "min_total_s": 0.04964649979956448,
+      "min_por_llamada_us": 49.64649979956448,
+      "mediana_por_llamada_us": 49.69720006920397,
+      "max_por_llamada_us": 50.62639992684126,
       "mediana_pico_bytes": 2416,
       "entrada_bytes": 4460
     },
@@ -64,11 +64,11 @@
       "entrada_replicada": false,
       "iteraciones": 1000,
       "repeticiones": 3,
-      "min_total_s": 0.14072370000212686,
-      "min_por_llamada_us": 140.72370000212686,
-      "mediana_por_llamada_us": 140.74660000187578,
-      "max_por_llamada_us": 145.7386000038241,
-      "mediana_pico_bytes": 7802,
+      "min_total_s": 0.1809839999768883,
+      "min_por_llamada_us": 180.9839999768883,
+      "mediana_por_llamada_us": 181.43610004335642,
+      "max_por_llamada_us": 183.6822999175638,
+      "mediana_pico_bytes": 7866,
       "entrada_bytes": 4460
     },
     {
@@ -78,10 +78,10 @@
       "entrada_replicada": true,
       "iteraciones": 1000,
       "repeticiones": 3,
-      "min_total_s": 0.0661273000005167,
-      "min_por_llamada_us": 66.1273000005167,
-      "mediana_por_llamada_us": 75.16380000015488,
-      "max_por_llamada_us": 75.63110000046436,
+      "min_total_s": 0.09457450010813773,
+      "min_por_llamada_us": 94.57450010813773,
+      "mediana_por_llamada_us": 94.96510005556047,
+      "max_por_llamada_us": 97.15840010903776,
       "mediana_pico_bytes": 4200,
       "entrada_bytes": 8132
     },
@@ -92,11 +92,11 @@
       "entrada_replicada": true,
       "iteraciones": 1000,
       "repeticiones": 3,
-      "min_total_s": 0.1427391000033822,
-      "min_por_llamada_us": 142.7391000033822,
-      "mediana_por_llamada_us": 143.78459999716142,
-      "max_por_llamada_us": 157.014700002037,
-      "mediana_pico_bytes": 10805,
+      "min_total_s": 0.17329529998824,
+      "min_por_llamada_us": 173.29529998824,
+      "mediana_por_llamada_us": 176.44100007601082,
+      "max_por_llamada_us": 180.09959999471903,
+      "mediana_pico_bytes": 10869,
       "entrada_bytes": 8132
     },
     {
@@ -106,10 +106,10 @@
       "entrada_replicada": true,
       "iteraciones": 1000,
       "repeticiones": 3,
-      "min_total_s": 0.1360555999999633,
-      "min_por_llamada_us": 136.0555999999633,
-      "mediana_por_llamada_us": 137.29410000087228,
-      "max_por_llamada_us": 143.60909999959404,
+      "min_total_s": 0.18863829993642867,
+      "min_por_llamada_us": 188.63829993642867,
+      "mediana_por_llamada_us": 188.67880012840033,
+      "max_por_llamada_us": 188.99709987454116,
       "mediana_pico_bytes": 7816,
       "entrada_bytes": 16132
     },
@@ -120,11 +120,11 @@
       "entrada_replicada": true,
       "iteraciones": 1000,
       "repeticiones": 3,
-      "min_total_s": 0.14849130000220612,
-      "min_por_llamada_us": 148.49130000220612,
-      "mediana_por_llamada_us": 149.604599995655,
-      "max_por_llamada_us": 150.03759999672184,
-      "mediana_pico_bytes": 17373,
+      "min_total_s": 0.17683749995194376,
+      "min_por_llamada_us": 176.83749995194376,
+      "mediana_por_llamada_us": 177.34179995022714,
+      "max_por_llamada_us": 181.68919999152422,
+      "mediana_pico_bytes": 17437,
       "entrada_bytes": 16132
     },
     {
@@ -134,10 +134,10 @@
       "entrada_replicada": true,
       "iteraciones": 1000,
       "repeticiones": 3,
-      "min_total_s": 0.34005330000218237,
-      "min_por_llamada_us": 340.05330000218237,
-      "mediana_por_llamada_us": 340.26450000237674,
-      "max_por_llamada_us": 340.4117999962182,
+      "min_total_s": 0.4764221999794245,
+      "min_por_llamada_us": 476.4221999794245,
+      "mediana_por_llamada_us": 480.16560007818043,
+      "max_por_llamada_us": 508.6395000107587,
       "mediana_pico_bytes": 18832,
       "entrada_bytes": 40132
     },
@@ -148,11 +148,11 @@
       "entrada_replicada": true,
       "iteraciones": 1000,
       "repeticiones": 3,
-      "min_total_s": 0.16085040000325534,
-      "min_por_llamada_us": 160.85040000325534,
-      "mediana_por_llamada_us": 161.31470000254922,
-      "max_por_llamada_us": 163.99890000320738,
-      "mediana_pico_bytes": 36673,
+      "min_total_s": 0.1877138998825103,
+      "min_por_llamada_us": 187.7138998825103,
+      "mediana_por_llamada_us": 190.47260005027056,
+      "max_por_llamada_us": 193.41840012930334,
+      "mediana_pico_bytes": 36737,
       "entrada_bytes": 40132
     },
     {
@@ -162,10 +162,10 @@
       "entrada_replicada": true,
       "iteraciones": 1000,
       "repeticiones": 3,
-      "min_total_s": 0.6825938999973005,
-      "min_por_llamada_us": 682.5938999973005,
-      "mediana_por_llamada_us": 685.7843000034336,
-      "max_por_llamada_us": 695.6035000039265,
+      "min_total_s": 0.9566112998872995,
+      "min_por_llamada_us": 956.6112998872995,
+      "mediana_por_llamada_us": 961.0810000449419,
+      "max_por_llamada_us": 973.4107998665422,
       "mediana_pico_bytes": 37608,
       "entrada_bytes": 80132
     },
@@ -176,11 +176,11 @@
       "entrada_replicada": true,
       "iteraciones": 1000,
       "repeticiones": 3,
-      "min_total_s": 0.17463390000193613,
-      "min_por_llamada_us": 174.63390000193613,
-      "mediana_por_llamada_us": 176.89450000034412,
-      "max_por_llamada_us": 179.51860000175657,
-      "mediana_pico_bytes": 68793,
+      "min_total_s": 0.20545210014097393,
+      "min_por_llamada_us": 205.45210014097393,
+      "mediana_por_llamada_us": 208.52979994378984,
+      "max_por_llamada_us": 231.23070015572011,
+      "mediana_pico_bytes": 68857,
       "entrada_bytes": 80132
     },
     {
@@ -190,10 +190,10 @@
       "entrada_replicada": true,
       "iteraciones": 1000,
       "repeticiones": 3,
-      "min_total_s": 1.3781726000015624,
-      "min_por_llamada_us": 1378.1726000015624,
-      "mediana_por_llamada_us": 1379.8988999988069,
-      "max_por_llamada_us": 1380.81040000543,
+      "min_total_s": 1.9239610000513494,
+      "min_por_llamada_us": 1923.9610000513494,
+      "mediana_por_llamada_us": 1938.9635999687016,
+      "max_por_llamada_us": 1943.6122002080083,
       "mediana_pico_bytes": 72760,
       "entrada_bytes": 160132
     },
@@ -204,11 +204,11 @@
       "entrada_replicada": true,
       "iteraciones": 1000,
       "repeticiones": 3,
-      "min_total_s": 0.2104985999976634,
-      "min_por_llamada_us": 210.4985999976634,
-      "mediana_por_llamada_us": 211.30619999894407,
-      "max_por_llamada_us": 211.58309999736957,
-      "mediana_pico_bytes": 132649,
+      "min_total_s": 0.24637329997494817,
+      "min_por_llamada_us": 246.3732999749482,
+      "mediana_por_llamada_us": 248.01020021550357,
+      "max_por_llamada_us": 248.90580005012453,
+      "mediana_pico_bytes": 132713,
       "entrada_bytes": 160132
     },
     {
@@ -218,10 +218,10 @@
       "entrada_replicada": true,
       "iteraciones": 1000,
       "repeticiones": 3,
-      "min_total_s": 3.431166700000176,
-      "min_por_llamada_us": 3431.166700000176,
-      "mediana_por_llamada_us": 3454.1725999952178,
-      "max_por_llamada_us": 3497.429099996225,
+      "min_total_s": 4.79697829997167,
+      "min_por_llamada_us": 4796.97829997167,
+      "mediana_por_llamada_us": 4856.931900139898,
+      "max_por_llamada_us": 4877.044199965894,
       "mediana_pico_bytes": 182976,
       "entrada_bytes": 400132
     },
@@ -232,19 +232,19 @@
       "entrada_replicada": true,
       "iteraciones": 1000,
       "repeticiones": 3,
-      "min_total_s": 0.3022071000013966,
-      "min_por_llamada_us": 302.2071000013966,
-      "mediana_por_llamada_us": 302.49059999914607,
-      "max_por_llamada_us": 308.0400000035297,
-      "mediana_pico_bytes": 325225,
+      "min_total_s": 0.3467899998649955,
+      "min_por_llamada_us": 346.7899998649955,
+      "mediana_por_llamada_us": 350.1999999862164,
+      "max_por_llamada_us": 353.3101000357419,
+      "mediana_pico_bytes": 325289,
       "entrada_bytes": 400132
     }
   ],
   "cruces": {
     "intervalos_observados": [
       {
-        "ultimo_n_bucle_no_mas_lento": 2000,
-        "primer_n_pandas_mas_rapido": 5000
+        "ultimo_n_bucle_no_mas_lento": 1000,
+        "primer_n_pandas_mas_rapido": 2000
       }
     ],
     "nota": "Se comparan mínimos de tres mediciones. No se estima un punto exacto ni se garantiza monotonicidad.",
@@ -257,6 +257,7 @@
     "F3/src/benchmark_iqr.py": "7d9fb7eb61b38a13b94a6add78ead7d59d9911e2cd86608d56eacd5808c2991f",
     "F3/src/datos_iqr.py": "5ddf1e933d1bf7957e0969ea10482f7a4fffa0357f54850a8bd9f67212cbc87d",
     "F3/src/funciones_iqr.py": "a95e591dc062606dbe063f21d1715d14e6a36e346a0e88357130f537c1da89f7",
+    "F3/src/preprocesamiento.py": "fc559db9d9c16d4f4df0baa357faebf196099a005d4c6588cb3646fdbc3b1cbe",
     "F3/tests/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
     "F3/tests/test_funciones_iqr.py": "a4f395a498e5ee4077ed1d5b7e39f06f78ce3d82c9fb10df1cd54dda9ca2d612"
   },
