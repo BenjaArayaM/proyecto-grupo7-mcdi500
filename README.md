@@ -59,7 +59,8 @@ Las contribuciones individuales se identifican mediante ramas, commits y registr
 | `F2/src/preprocesamiento.py`             | Limpieza, transformación y generación de resultados           |
 | `F2/src/informe.py`                      | Generación de elementos diagnósticos para el informe          |
 | `F2/tests/`                              | Pruebas automatizadas del preprocesamiento                    |
-| `F2/data/processed/`                     | Parámetros y resultados generados por el pipeline             |
+| `F2/data/processed/`                     | Parámetros y resultados generados por el pipeline
+| `F4/notebooks/F4_Analisis_Resultados.ipynb` | Análisis final, visualizaciones y respuesta integrada       |           |
 | `scripts/`                               | Automatización de ejecución y verificación                    |
 | `evidencias/`                            | Registros de ejecuciones y validaciones                       |
 | `docs/`                                  | Bitácora, decisiones y trazabilidad con el mapa               |
@@ -90,8 +91,8 @@ En términos generales:
 * **Git/GitHub:** control de versiones, ramas y trazabilidad.
 * **Informe técnico:** resultados documentados en LaTeX y PDF.
 * **F3/F4:** la Sumativa 1 las contemplaba como etapas posteriores; actualmente F3
-  Formativa se encuentra implementada e integrada, mientras F4 continúa proyectada.
-
+  se encuentra implementada e integrada, mientras F4 incorpora el análisis final,
+  las visualizaciones explicativas y la respuesta integrada a la pregunta del proyecto.
 ---
 
 ## Datos
