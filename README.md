@@ -4,7 +4,7 @@ Preparación reproducible de órdenes de Compra Ágil de la Municipalidad de Val
 
 La pregunta central del mapa conceptual es cómo se distribuyen los montos por proveedor, rubro y mes. En la **Sumativa 1**, **F1** define el problema, los datos y el entorno de trabajo, mientras **F2** desarrolla la exploración, limpieza, transformación, diagnóstico y validación inicial de los datos.
 
-**Estado:** F1 y F2 se encuentran implementadas y validadas; F3 Formativa fue integrada, validada y publicada en `main`. F4 permanece proyectada según las futuras etapas del proyecto.
+**Estado:** F1 y F2 se encuentran implementadas y validadas; F3 fue integrada y validada. F4 incorpora el análisis final de resultados, las visualizaciones explicativas y la respuesta integrada a la pregunta del proyecto.
 
 ---
 
@@ -403,11 +403,11 @@ chore: actualiza configuración del entorno
 | F1 · Definición | Implementada y validada |
 | F2 · Preprocesamiento | Implementada y validada |
 | F3 · Formativa | Integrada, validada y publicada en `main` |
-| F4 | Proyectada |
+| F4 · Integración y resultados | Implementada y validada localmente |
 
 En la planificación original de la Sumativa 1, F3 y F4 estaban proyectadas. La Formativa 3
 y su revisión se documentan en los apartados siguientes. El estado actual del repositorio refleja
-la posterior implementación e integración de F3; F4 continúa pendiente.
+la posterior implementación e integración de F3; La Fase 4 integra los resultados generados en las fases anteriores y responde la pregunta central del proyecto mediante tres dimensiones de análisis: mes de envío, proveedor y rubro. El notebook final fue ejecutado desde un kernel reiniciado para comprobar su reproducibilidad completa.
 
 ## Documentación complementaria
 - `docs/bitacora_decisiones.md` — registro de decisiones y validaciones.
