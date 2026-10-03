@@ -60,7 +60,7 @@ Las contribuciones individuales se identifican mediante ramas, commits y registr
 | `F2/src/informe.py`                      | Generación de elementos diagnósticos para el informe          |
 | `F2/tests/`                              | Pruebas automatizadas del preprocesamiento                    |
 | `F2/data/processed/`                     | Parámetros y resultados generados por el pipeline
-| `F4/notebooks/F4_Analisis_Resultados.ipynb` | Análisis final, visualizaciones y respuesta integrada       |           |
+| `F4/notebooks/F4_Analisis_Resultados.ipynb` | Análisis final, visualizaciones y respuesta integrada |
 | `scripts/`                               | Automatización de ejecución y verificación                    |
 | `evidencias/`                            | Registros de ejecuciones y validaciones                       |
 | `docs/`                                  | Bitácora, decisiones y trazabilidad con el mapa               |
